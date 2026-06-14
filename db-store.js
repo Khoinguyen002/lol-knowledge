@@ -136,6 +136,42 @@ class TruthNode {
   }
 }
 
+class CausalTracker {
+  constructor() {
+    this.records = {};
+  }
+  
+  track(factorId, factorName, effectDelta) {
+    if (!this.records[factorId]) {
+      this.records[factorId] = {
+        name: factorName,
+        count: 0,
+        totalDelta: 0.0
+      };
+    }
+    this.records[factorId].count += 1;
+    this.records[factorId].totalDelta += effectDelta;
+  }
+  
+  getSummary(totalTrials) {
+    const summary = [];
+    for (const [id, record] of Object.entries(this.records)) {
+      const frequency = (record.count / totalTrials) * 100;
+      const averageImpact = record.totalDelta / record.count;
+      const winrateImpact = (record.totalDelta / totalTrials) * 100;
+      
+      summary.push({
+        id,
+        name: record.name,
+        frequency: parseFloat(frequency.toFixed(1)),
+        impact: parseFloat(averageImpact.toFixed(3)),
+        winrateImpact: parseFloat(winrateImpact.toFixed(1))
+      });
+    }
+    return summary;
+  }
+}
+
 class StateBuilder {
   constructor(db) { this.db = db; }
   build(champion, gameMode) {
@@ -198,7 +234,7 @@ class AugmentEngine {
     return bestRole;
   }
 
-  apply(state, modeConfig, queryText) {
+  apply(state, modeConfig, queryText, tracker) {
     const ruleset = modeConfig.ruleset_overrides || [];
     const champion = state.champion || "Jax";
     const activeRole = this.classifyActiveRole(champion, state.baseMeta, queryText, ruleset);
@@ -285,18 +321,26 @@ class AugmentEngine {
 }
 
 class MechanicsEngine {
-  calculateAdvantage(state) {
+  calculateAdvantage(state, customModifiers = null) {
     const stats = state.stats || {};
-    const modifiers = state.modifiers || {};
+    const modifiers = customModifiers || state.modifiers || {};
     const role = state.activeRole || 'fighter';
 
-    // Phase 1: Pre-Hit (Setup, positioning, spacing & reaction time)
+    // ARAM Base Ruleset / Environmental Physics
+    const range = stats.attackrange || 125;
+    
+    // ARAM Poke Bias Curve (Sigmoid range derived)
+    const pokeFactor = 1 / (1 + Math.exp(-(range - 450) / 100)); // values approach 1.0 for range > 450
+
+    // ARAM Sustain Aura Nerf (Flat 50% penalty on heals/shields and lifesteal)
+    const sustainPenalty = 0.50; 
+
+    // Phase 1: Pre-Hit (Setup, spacing & reaction time)
     const baseMS = stats.movespeed || 335;
     const msMod = modifiers.movespeed_multiplier || 1.0;
-    const range = stats.attackrange || 125;
-    const reactionMod = modifiers.reaction_time_modifier || 0.0; // e.g. -0.10 slows opponent down, giving us +0.10 advantage
+    const reactionMod = modifiers.reaction_time_modifier || 0.0;
     
-    const preHitScore = ((baseMS * msMod) / 350) * 0.3 + (range / 650) * 0.2 - reactionMod * 0.5;
+    const preHitScore = ((baseMS * msMod) / 350) * 0.2 + pokeFactor * 0.5 - reactionMod * 0.4;
 
     // Phase 2: Hit Window (Damage sequencing: Burst vs Sustained)
     const baseAD = stats.attackdamage || 60;
@@ -305,20 +349,23 @@ class MechanicsEngine {
     const haste = modifiers.ability_haste || 0;
     const ultHaste = modifiers.ult_ability_haste || 0;
     const totalHaste = haste + ultHaste;
-    const cooldownMod = 100 / (100 + totalHaste);
+    
+    // Diminishing returns curve for Haste
+    const hasteEfficiency = totalHaste / (totalHaste + 100); // approaches 1.0
+    const cooldownMod = (1.0 - hasteEfficiency) * (modifiers.cooldown_multiplier || 1.0);
 
     let hitScore = 0;
     if (role === 'mage' || role === 'fighter') {
       // Burst damage sequencing: high spell scaling & cooldown efficiency
       const burstScaling = modifiers.ult_damage_multiplier || 1.0;
-      hitScore = ((baseAD * adMod * burstScaling) / 100) * (1.5 / cooldownMod);
+      hitScore = ((baseAD * adMod * burstScaling) / 100) * (2.0 / (cooldownMod + 0.1));
     } else {
       // Sustained damage sequencing: attack speed & consistent dps
       const dpsScaling = asMod * adMod;
       hitScore = ((baseAD * dpsScaling) / 100) * 2.0;
     }
 
-    // Phase 3: Post-Hit (Survivability, shielding, recovery & mitigation)
+    // Phase 3: Post-Hit (Survivability, shielding & recovery)
     const baseArmor = stats.armor || 30;
     const baseMR = stats.spellblock || 30;
     const baseHP = stats.hp || 600;
@@ -327,21 +374,23 @@ class MechanicsEngine {
     const finalHP = (baseHP + hpBonus) * sizeMod;
     
     const rawMitigation = 1 - (100 / (100 + (baseArmor + baseMR) / 2));
-    const lifestealFactor = (modifiers.lifesteal || 0) * 0.02;
-    const survivabilityWindow = (finalHP / 500) * (1 + rawMitigation);
     
-    let postHitScore = survivabilityWindow * (1 + lifestealFactor);
+    // Sustain is penalized by 50% in ARAM
+    const lifestealFactor = ((modifiers.lifesteal || 0) * sustainPenalty) * 0.02;
+    const survivabilityWindow = (finalHP / 500) * (1.0 + rawMitigation);
+    
+    let postHitScore = survivabilityWindow * (1.0 + lifestealFactor);
     if (modifiers.revive_first_death) {
-      postHitScore += 0.25; // Significant post-hit recovery window
+      postHitScore += 0.30;
     }
     if (modifiers.untargetable_on_low_hp) {
-      postHitScore += 0.15; // Escape/recovery window
+      postHitScore += 0.15;
     }
 
-    // Integrate combat phases into final advantage
+    // Integrate combat phases based on role weighting
     let weightPre = 0.2, weightHit = 0.5, weightPost = 0.3;
     if (role === 'tank') {
-      weightPre = 0.15; weightHit = 0.25; weightPost = 0.60;
+      weightPre = 0.15; weightHit = 0.20; weightPost = 0.65;
     } else if (role === 'adc') {
       weightPre = 0.30; weightHit = 0.55; weightPost = 0.15;
     } else if (role === 'mage') {
@@ -355,26 +404,65 @@ class MechanicsEngine {
   }
 }
 
-class ModeMutationEngine {
-  mutate(baseAdvantage, modeConfig, champion) {
-    const ruleset = modeConfig.ruleset_overrides || [];
-    let mutatedAdvantage = baseAdvantage;
-    let appliedMutations = [];
+class ChaosModifierEngine {
+  applyDistortion(state, modeConfig, intensity, seed, tracker) {
+    const modifiers = { ...state.modifiers };
+    const chaosEvents = [];
+    const pool = modeConfig.chaos_modifiers || {};
     
-    const seed = champion ? champion.length : 5;
+    // 1. Combat Distortion: Linear mapping with intensity
+    if (pool.combat_distortion && pool.combat_distortion.length > 0) {
+      const dist = pool.combat_distortion[seed % pool.combat_distortion.length];
+      const weight = intensity * 0.20; // max 20% shift
+      
+      if (dist.id === "cooldown_shift") {
+        modifiers.cooldown_multiplier *= (1.0 - weight);
+        chaosEvents.push({ id: dist.id, name: dist.name, description: dist.description, impact: dist.base_impact * intensity });
+        if (tracker) tracker.track(dist.id, dist.name, dist.base_impact * intensity);
+      } else if (dist.id === "ability_swap") {
+        modifiers.damage_dealt_multiplier *= (1.0 + weight * 0.5);
+        chaosEvents.push({ id: dist.id, name: dist.name, description: dist.description, impact: dist.base_impact * intensity });
+        if (tracker) tracker.track(dist.id, dist.name, dist.base_impact * intensity);
+      }
+    }
     
-    if (ruleset.includes("ability_mutation_enabled")) {
-       const dmgMod = (seed % 3 === 0) ? 0.05 : ((seed % 2 === 0) ? -0.05 : 0);
-       mutatedAdvantage += dmgMod;
-       appliedMutations.push(`Ability Mutation (Dmg Mod: ${dmgMod > 0 ? '+' : ''}${dmgMod})`);
+    // 2. Map Instability: Sigmoid function mapping
+    const sigmoidVal = 1 / (1 + Math.exp(-10 * (intensity - 0.5)));
+    if (sigmoidVal > 0.1 && pool.map_instability && pool.map_instability.length > 0) {
+      const mapEvent = pool.map_instability[(seed + 3) % pool.map_instability.length];
+      if (mapEvent.id === "vision_flicker") {
+        modifiers.reaction_time_modifier -= (0.15 * sigmoidVal);
+        modifiers.vision_radius_instability = true;
+        chaosEvents.push({ id: mapEvent.id, name: mapEvent.name, description: mapEvent.description, impact: mapEvent.base_impact * sigmoidVal });
+        if (tracker) tracker.track(mapEvent.id, mapEvent.name, mapEvent.base_impact * sigmoidVal);
+      } else if (mapEvent.id === "lane_narrowing") {
+        modifiers.reaction_time_modifier += (0.05 * sigmoidVal); // narrow lane makes skillshots easier
+        chaosEvents.push({ id: mapEvent.id, name: mapEvent.name, description: mapEvent.description, impact: mapEvent.base_impact * sigmoidVal });
+        if (tracker) tracker.track(mapEvent.id, mapEvent.name, mapEvent.base_impact * sigmoidVal);
+      }
     }
-    if (ruleset.includes("cooldown_randomization")) {
-       appliedMutations.push(`Cooldown Shift (Seeded)`);
+    
+    // 3. Rule Break Events: Thresholded probability gate (intensity > 0.75)
+    if (intensity > 0.75 && pool.rule_break_events && pool.rule_break_events.length > 0) {
+      const probGate = (intensity - 0.75) / 0.25; // scaling probability up to 1.0
+      const randVal = Math.random();
+      
+      if (randVal < probGate) {
+        const ruleEvent = pool.rule_break_events[(seed + 7) % pool.rule_break_events.length];
+        if (ruleEvent.id === "revive_event") {
+          modifiers.revive_first_death = true;
+          chaosEvents.push({ id: ruleEvent.id, name: ruleEvent.name, description: ruleEvent.description, impact: ruleEvent.base_impact });
+          if (tracker) tracker.track(ruleEvent.id, ruleEvent.name, ruleEvent.base_impact);
+        } else if (ruleEvent.id === "double_ult") {
+          modifiers.ult_damage_multiplier *= 1.5;
+          modifiers.ult_ability_haste += 50;
+          chaosEvents.push({ id: ruleEvent.id, name: ruleEvent.name, description: ruleEvent.description, impact: ruleEvent.base_impact });
+          if (tracker) tracker.track(ruleEvent.id, ruleEvent.name, ruleEvent.base_impact);
+        }
+      }
     }
-    if (ruleset.includes("vision_instability")) {
-       appliedMutations.push(`Vision Radius Instability`);
-    }
-    return { mutatedAdvantage, appliedMutations };
+    
+    return { distortedModifiers: modifiers, chaosEvents };
   }
 }
 
@@ -389,25 +477,94 @@ class HumanNoiseEngine {
 class MonteCarloSimulation {
   constructor() {
     this.noise = new HumanNoiseEngine();
+    this.mechanics = new MechanicsEngine();
+    this.chaosEngine = new ChaosModifierEngine();
   }
   
-  simulate(mutatedAdvantage, modeConfig) {
+  simulate(augmentedState, modeConfig, tracker) {
     const trials = 50;
+    const baseIntensity = modeConfig.parameters.chaos_intensity || 0.0;
+    const trialProbabilities = [];
+    const seed = (augmentedState.champion || "Jax").length;
+    
     let wins = 0;
     
+    // Track baseline (no chaos) for causal calculation
+    const baseAdvantage = this.mechanics.calculateAdvantage(augmentedState, augmentedState.modifiers);
+    
     for (let i = 0; i < trials; i++) {
-      const hitChance = mutatedAdvantage;
-      const finalChance = this.noise.injectNoise(hitChance, modeConfig.parameters.randomness_level, modeConfig.parameters.execution_error_scale);
+      // 1. Stochastic Chaos Intensity per trial (intensity +- 0.05 noise)
+      const intensityNoise = (Math.random() * 0.10) - 0.05;
+      const trialIntensity = Math.min(1.0, Math.max(0.0, baseIntensity + intensityNoise));
+      
+      // 2. Apply Chaos Modifiers
+      const { distortedModifiers, chaosEvents } = this.chaosEngine.applyDistortion(augmentedState, modeConfig, trialIntensity, seed + i, tracker);
+      
+      // 3. Mechanics Solver
+      const trialAdvantage = this.mechanics.calculateAdvantage(augmentedState, distortedModifiers);
+      trialProbabilities.push(trialAdvantage);
+      
+      // Causal analysis: track augment contribution dynamically on every trial to get 100% frequency
+      if (tracker) {
+        // Track the impact of the selected augments compared to base stats
+        const noAugState = { ...augmentedState, modifiers: {
+          damage_dealt_multiplier: 1.0,
+          damage_taken_multiplier: 1.0,
+          ability_haste: 0,
+          attackspeed_multiplier: 1.0,
+          hp_bonus: 0,
+          size_multiplier: 1.0,
+          lifesteal: 0,
+          ult_ability_haste: 0,
+          ult_damage_multiplier: 1.0,
+          cooldown_multiplier: 1.0,
+          revive_first_death: false,
+          vision_radius_instability: false,
+          reaction_time_modifier: 0.0,
+          ability_mutation_enabled: false,
+          poro_damage_bonus: 0
+        }};
+        const noAugAdv = this.mechanics.calculateAdvantage(noAugState, noAugState.modifiers);
+        const augmentImpact = baseAdvantage - noAugAdv;
+        tracker.track("augments_total", "Bộ Nâng Cấp Được Chọn", augmentImpact);
+      }
+      
+      // 4. Inject human execution noise
+      const finalChance = this.noise.injectNoise(trialAdvantage, modeConfig.parameters.randomness_level, modeConfig.parameters.execution_error_scale);
       if (Math.random() < finalChance) {
         wins++;
       }
     }
     
+    // Sort probabilities to calculate percentiles
+    trialProbabilities.sort((a, b) => a - b);
+    
+    // 5. Statistical distribution calculations
+    const mean = trialProbabilities.reduce((sum, p) => sum + p, 0) / trials;
+    const variance = trialProbabilities.reduce((sum, p) => sum + Math.pow(p - mean, 2), 0) / trials;
+    const stdDev = Math.sqrt(variance);
+    
+    // Skewness formula
+    const skewnessNumerator = trialProbabilities.reduce((sum, p) => sum + Math.pow(p - mean, 3), 0) / trials;
+    const skewness = stdDev === 0 ? 0.0 : skewnessNumerator / Math.pow(stdDev, 3);
+    
+    const p10 = trialProbabilities[Math.floor(trials * 0.10)];
+    const p50 = trialProbabilities[Math.floor(trials * 0.50)]; // median
+    const p90 = trialProbabilities[Math.floor(trials * 0.90)];
+    
     return {
       winrate: wins / trials,
       trials: trials,
       noise_level_used: modeConfig.parameters.randomness_level,
-      error_scale: modeConfig.parameters.execution_error_scale
+      error_scale: modeConfig.parameters.execution_error_scale,
+      stats: {
+        mean: mean,
+        std: stdDev,
+        skew: skewness,
+        p10: p10,
+        p50: p50,
+        p90: p90
+      }
     };
   }
 }
@@ -427,18 +584,27 @@ class CalibrationObserver {
 }
 
 class RenderNode {
-  render(truthResult, simResult, calibrationResult, state, modeConfig, chosenAugments, appliedMutations) {
+  render(truthResult, simResult, calibrationResult, state, modeConfig, chosenAugments, causalTracker) {
     const augmentDisplay = chosenAugments && chosenAugments.length > 0 
       ? chosenAugments.map(a => `${a.name} (${a.description})`).join(', ')
       : "None";
+
+    const stats = simResult.stats || {};
+    const causalSummary = causalTracker ? causalTracker.getSummary(simResult.trials) : [];
 
     return {
       Game_Mode: state.gameMode,
       Mode_Ruleset: modeConfig.ruleset_overrides.join(', ') || "None",
       Truth_Layer: `[Level ${truthResult.level}] ${truthResult.note} (Confidence: ${truthResult.confidence})`,
       Stochastic_Simulation: `${(simResult.winrate * 100).toFixed(1)}% Win Probability ±${(simResult.noise_level_used*100).toFixed(0)}% (n=${simResult.trials})`,
-      Mutations_Applied: appliedMutations && appliedMutations.length > 0 ? appliedMutations.join(', ') : "None",
+      Stats_Distribution: {
+        mean: `${(stats.mean * 100).toFixed(1)}%`,
+        std: `${(stats.std * 100).toFixed(1)}%`,
+        skew: stats.skew >= 0 ? `+${stats.skew.toFixed(2)}` : `${stats.skew.toFixed(2)}`,
+        percentiles: `p10: ${(stats.p10 * 100).toFixed(1)}% | p50: ${(stats.p50 * 100).toFixed(1)}% | p90: ${(stats.p90 * 100).toFixed(1)}%`
+      },
       Selected_Augments: augmentDisplay,
+      Causal_Chains: causalSummary,
       Reality_Calibration_Observer: calibrationResult.drift_note,
       Strategic_Policy: state.baseMeta.timeline_strategy || "Chưa có chiến thuật cụ thể",
       Recovery_Options: state.baseMeta.recovery_decision_tree || "Chưa có kịch bản thọt"
@@ -453,8 +619,6 @@ export class StagedControllerGraph {
     this.truthNode = new TruthNode(db);
     this.stateBuilder = new StateBuilder(db);
     this.augmentEngine = new AugmentEngine();
-    this.mechanics = new MechanicsEngine();
-    this.modeMutationEngine = new ModeMutationEngine();
     this.simulator = new MonteCarloSimulation();
     this.calibration = new CalibrationObserver();
     this.renderNode = new RenderNode();
@@ -470,13 +634,13 @@ export class StagedControllerGraph {
     const truth = this.truthNode.resolve(champ, ability, modeConfig.ruleset_overrides);
     const baseState = this.stateBuilder.build(champ, gameMode);
     
-    const { augmentedState, chosenAugments } = this.augmentEngine.apply(baseState, modeConfig, queryString);
-    const mechanicsAdv = this.mechanics.calculateAdvantage(augmentedState);
-    const { mutatedAdvantage, appliedMutations } = this.modeMutationEngine.mutate(mechanicsAdv, modeConfig, champ);
-    const simResult = this.simulator.simulate(mutatedAdvantage, modeConfig);
+    const tracker = new CausalTracker();
+    const { augmentedState, chosenAugments } = this.augmentEngine.apply(baseState, modeConfig, queryString, tracker);
+    
+    const simResult = this.simulator.simulate(augmentedState, modeConfig, tracker);
     const calibResult = this.calibration.observe(simResult, augmentedState, modeConfig);
     
-    return this.renderNode.render(truth, simResult, calibResult, augmentedState, modeConfig, chosenAugments, appliedMutations);
+    return this.renderNode.render(truth, simResult, calibResult, augmentedState, modeConfig, chosenAugments, tracker);
   }
 }
 

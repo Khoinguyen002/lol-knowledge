@@ -2,8 +2,8 @@
   "Jax": {
     "Burst Combo": {
       "steps": [
-        { "step": 1, "action": "E", "timing": "pre-engage", "state_precondition": { "enemy_in_range": false, "auto_attack_window": false }, "description": "Kích hoạt E trước để tích điểm né đòn và chuẩn bị làm choáng." },
-        { "step": 2, "action": "Q", "timing": "engage", "state_precondition": { "enemy_in_range": true, "dash_target_available": true }, "description": "Nhảy Q vào mục tiêu." },
+        { "step": 1, "action": "E", "timing": "pre-engage", "state_precondition": { "enemy_in_range": false }, "description": "Kích hoạt E trước để tích điểm né đòn và chuẩn bị làm choáng." },
+        { "step": 2, "action": "Q", "timing": "engage", "state_precondition": { "enemy_in_range": true }, "description": "Nhảy Q vào mục tiêu." },
         { "step": 3, "action": "AA", "timing": "mid-combo", "state_precondition": { "in_melee_range": true }, "description": "Đánh thường ngay sau khi đáp." },
         { "step": 4, "action": "W", "timing": "auto-reset", "state_precondition": { "auto_attack_window": true }, "description": "Kích hoạt W ngay sau đòn đánh thường để reset animation và dồn sốc sát thương." }
       ]
@@ -15,6 +15,217 @@
         { "step": 1, "action": "Q3", "timing": "engage", "state_precondition": { "tornado_ready": true }, "description": "Tung lốc (Q3) trúng mục tiêu." },
         { "step": 2, "action": "R", "timing": "airborne_window", "state_precondition": { "target_airborne": true }, "description": "Bấm R ngay lập tức để hất tung và gây sát thương." },
         { "step": 3, "action": "Q", "timing": "post-ult", "state_precondition": { "in_melee_range": true }, "description": "Sau khi đáp xuống, Q lập tức để bồi sát thương." }
+      ]
+    }
+  },
+  "Aatrox": {
+    "Standard Engage Combo": {
+      "steps": [
+        { "step": 1, "action": "Q1", "timing": "engage", "state_precondition": { "enemy_in_range": true }, "description": "Tung Q1 rìa ngoài để cấu rỉa và khống chế." },
+        { "step": 2, "action": "E + Q2", "timing": "engage", "state_precondition": { "enemy_in_range": true }, "description": "Lướt E kết hợp tung Q2 để điều chỉnh rìa kiếm trúng mục tiêu." },
+        { "step": 3, "action": "W", "timing": "mid-combo", "state_precondition": { "enemy_in_range": true }, "description": "Tung W để làm chậm và giữ chân mục tiêu trong vùng kéo." },
+        { "step": 4, "action": "Q3", "timing": "execute", "state_precondition": { "target_pulled": true }, "description": "Nện Q3 chính giữa tâm khi mục tiêu bị kéo về." }
+      ]
+    }
+  },
+  "Ahri": {
+    "Charm Catch Combo": {
+      "steps": [
+        { "step": 1, "action": "E", "timing": "engage", "state_precondition": { "no_minions_blocking": true }, "description": "Ném Hôn Gió (E) để khống chế cứng mục tiêu." },
+        { "step": 2, "action": "Q", "timing": "mid-combo", "state_precondition": { "target_charmed": true }, "description": "Tung Q (Quả Cầu Ma Thuật) gây sát thương 2 chiều đi và về." },
+        { "step": 3, "action": "W", "timing": "mid-combo", "state_precondition": { "target_charmed": true }, "description": "Kích hoạt W tăng tốc chạy và bắn lửa tự động tìm mục tiêu." },
+        { "step": 4, "action": "R", "timing": "reposition", "state_precondition": { "ult_ready": true }, "description": "Lướt R để đổi góc ném Q hoặc truy đuổi kết liễu." }
+      ]
+    }
+  },
+  "Zed": {
+    "Death Mark Burst": {
+      "steps": [
+        { "step": 1, "action": "R", "timing": "engage", "state_precondition": { "enemy_in_range": true }, "description": "Dùng Dấu Ấn Tử Thần (R) áp sát mục tiêu." },
+        { "step": 2, "action": "W", "timing": "mid-combo", "state_precondition": { "r_shadow_spawned": true }, "description": "Ném phân thân W chếch bên cạnh để tạo thêm góc ném phi tiêu." },
+        { "step": 3, "action": "E", "timing": "mid-combo", "state_precondition": { "in_melee_range": true }, "description": "Bấm E lập tức để làm chậm đối phương, tăng tỉ lệ trúng phi tiêu." },
+        { "step": 4, "action": "Q", "timing": "burst", "state_precondition": { "energy_available": true }, "description": "Ném phi tiêu Q đồng thời từ bản thể và 2 phân thân R + W." },
+        { "step": 5, "action": "R", "timing": "disengage", "state_precondition": { "danger": true }, "description": "Bấm R lần nữa để biến về bóng ban đầu rút lui an toàn." }
+      ]
+    }
+  },
+  "Lee Sin": {
+    "Insec Hook Kick": {
+      "steps": [
+        { "step": 1, "action": "Q1", "timing": "engage", "state_precondition": { "q_line_clear": true }, "description": "Bắn Q1 trúng mục tiêu." },
+        { "step": 2, "action": "Q2", "timing": "engage", "state_precondition": { "q_hit": true }, "description": "Bay vào bằng Q2." },
+        { "step": 3, "action": "Ward + W", "timing": "mid-air", "state_precondition": { "ward_available": true }, "description": "Cắm mắt phía sau mục tiêu và hộ thể W ra sau lưng chúng." },
+        { "step": 4, "action": "R", "timing": "execute", "state_precondition": { "behind_enemy": true }, "description": "Đá R tiễn đối phương về hướng đồng đội." }
+      ]
+    }
+  },
+  "Lucian": {
+    "Passive Rotation Combo": {
+      "steps": [
+        { "step": 1, "action": "E", "timing": "engage", "state_precondition": { "enemy_in_range": true }, "description": "Lướt E để áp sát và lấy nội tại bắn đôi." },
+        { "step": 2, "action": "AA", "timing": "passive", "state_precondition": { "passive_ready": true }, "description": "Đánh thường bắn 2 phát súng." },
+        { "step": 3, "action": "Q", "timing": "mid-combo", "state_precondition": { "in_range": true }, "description": "Tung Q xuyên mục tiêu." },
+        { "step": 4, "action": "AA", "timing": "passive", "state_precondition": { "passive_ready": true }, "description": "Bắn thêm 2 phát súng nội tại." },
+        { "step": 5, "action": "W", "timing": "mid-combo", "state_precondition": { "in_range": true }, "description": "Bắn W để lấy tốc chạy và sạc nội tại." },
+        { "step": 6, "action": "AA", "timing": "passive", "state_precondition": { "passive_ready": true }, "description": "Bắn đôi phát cuối để tối ưu hóa DPS." }
+      ]
+    }
+  },
+  "Riven": {
+    "Fast Q Engage": {
+      "steps": [
+        { "step": 1, "action": "E + R1", "timing": "pre-engage", "state_precondition": { "ult_ready": true }, "description": "Lướt E đồng thời bật R1 để hủy động tác thừa kích hoạt kiếm." },
+        { "step": 2, "action": "Q1", "timing": "engage", "state_precondition": { "enemy_in_range": true }, "description": "Lao vào bằng Q1." },
+        { "step": 3, "action": "W", "timing": "mid-combo", "state_precondition": { "in_melee_range": true }, "description": "Gầm rú W để làm choáng đối thủ." },
+        { "step": 4, "action": "AA", "timing": "passive", "state_precondition": { "passive_charges": true }, "description": "Đánh thường để tiêu thụ điểm nội tại kiếm." },
+        { "step": 5, "action": "Q2", "timing": "mid-combo", "state_precondition": { "enemy_in_range": true }, "description": "Tung Q2 bồi thêm sát thương." },
+        { "step": 6, "action": "AA + R2 + Q3", "timing": "execute", "state_precondition": { "target_low_hp": true }, "description": "Đánh thường, chém gió R2 và nện Q3 làm tung đối thủ lên." }
+      ]
+    }
+  },
+  "Fiora": {
+    "Grand Challenge Vitals": {
+      "steps": [
+        { "step": 1, "action": "R", "timing": "engage", "state_precondition": { "enemy_in_range": true }, "description": "Kích hoạt Đại Thử Thách (R) lên mục tiêu để hiện 4 điểm yếu." },
+        { "step": 2, "action": "Q", "timing": "engage", "state_precondition": { "vital_in_range": true }, "description": "Lao Q chém điểm yếu đầu tiên (thường là hướng dễ tiếp cận)." },
+        { "step": 3, "action": "AA + E", "timing": "mid-combo", "state_precondition": { "in_melee_range": true }, "description": "Đánh thường và kích hoạt E để tăng tốc đánh và làm chậm, di chuyển sang chém điểm yếu thứ 2." },
+        { "step": 4, "action": "W", "timing": "mid-combo", "state_precondition": { "incoming_cc": true }, "description": "Tung W chặn chiêu khống chế của địch để làm choáng ngược và phá điểm yếu thứ 3." },
+        { "step": 5, "action": "Flash + AA", "timing": "execute", "state_precondition": { "last_vital_remaining": true }, "description": "Tốc biến sang hướng đối diện và đánh thường phá điểm yếu cuối cùng." }
+      ]
+    }
+  },
+  "Vayne": {
+    "Tumble Wall Condemn": {
+      "steps": [
+        { "step": 1, "action": "R", "timing": "pre-engage", "state_precondition": { "ult_ready": true }, "description": "Bật R để kích hoạt bùa lợi và tàng hình khi nhào lộn." },
+        { "step": 2, "action": "Q", "timing": "engage", "state_precondition": { "enemy_in_range": true }, "description": "Nhào lộn Q để chọn góc tàng hình." },
+        { "step": 3, "action": "AA", "timing": "mid-combo", "state_precondition": { "in_range": true }, "description": "Bắn thường phát súng đầu tiên kích hoạt nội tại vòng bạc." },
+        { "step": 4, "action": "E", "timing": "execute", "state_precondition": { "enemy_near_wall": true }, "description": "Bắn Kết Án (E) đẩy mục tiêu vào tường gây choáng cực lâu." }
+      ]
+    }
+  },
+  "Ezreal": {
+    "Essence Flux Burst": {
+      "steps": [
+        { "step": 1, "action": "W", "timing": "engage", "state_precondition": { "w_cooldown": false }, "description": "Bắn W vòng tròn trúng mục tiêu." },
+        { "step": 2, "action": "E", "timing": "engage", "state_precondition": { "safe_to_jump": true }, "description": "Dịch chuyển cổ học E lên phía trước để tia đạn tự kích nổ vòng W." },
+        { "step": 3, "action": "Q", "timing": "mid-combo", "state_precondition": { "q_line_clear": true }, "description": "Bắn Q để gây sát thương và giảm 1.5s hồi mọi chiêu thức." },
+        { "step": 4, "action": "R", "timing": "execute", "state_precondition": { "target_running": true }, "description": "Vận chiêu cuối R từ xa để quét sạch đối thủ." }
+      ]
+    }
+  },
+  "Pyke": {
+    "Phantom Undertow Drag": {
+      "steps": [
+        { "step": 1, "action": "E", "timing": "engage", "state_precondition": { "e_cooldown": false }, "description": "Lướt E lên phía trước để lại cái bóng phía sau." },
+        { "step": 2, "action": "Q", "timing": "engage", "state_precondition": { "in_range": true }, "description": "Kéo Q ngược hướng lướt để lôi kẻ địch vào giữa đường chạy của bóng E để gây choáng." },
+        { "step": 3, "action": "AA", "timing": "mid-combo", "state_precondition": { "target_stunned": true }, "description": "Bồi thêm đòn đánh thường." },
+        { "step": 4, "action": "R", "timing": "execute", "state_precondition": { "enemy_under_threshold": true }, "description": "Tung Tử Thần Gõ Cửa (R) để hành quyết đối phương khi dưới ngưỡng máu." }
+      ]
+    }
+  },
+  "Malphite": {
+    "Unstoppable Force Engage": {
+      "steps": [
+        { "step": 1, "action": "R", "timing": "engage", "state_precondition": { "enemy_grouped": true }, "description": "Tung Không Thể Cản Phá (R) vào vị trí đông người nhất." },
+        { "step": 2, "action": "E", "timing": "mid-combo", "state_precondition": { "target_knocked_up": true }, "description": "Đập E giảm tốc độ đánh của kẻ địch xung quanh." },
+        { "step": 3, "action": "W", "timing": "mid-combo", "state_precondition": { "in_melee_range": true }, "description": "Bật W cường hóa đòn đánh lan." },
+        { "step": 4, "action": "Q", "timing": "chase", "state_precondition": { "target_fleeing": true }, "description": "Ném bánh xe Q làm chậm đối thủ và tăng tốc chạy truy đuổi." }
+      ]
+    }
+  },
+  "Lux": {
+    "Light Binding Spark": {
+      "steps": [
+        { "step": 1, "action": "Q", "timing": "engage", "state_precondition": { "q_line_clear": true }, "description": "Tung Khóa Ánh Sáng (Q) trói chân mục tiêu." },
+        { "step": 2, "action": "E", "timing": "mid-combo", "state_precondition": { "target_rooted": true }, "description": "Ném E làm chậm và tạo hiệu ứng tầm nhìn." },
+        { "step": 3, "action": "R", "timing": "execute", "state_precondition": { "target_rooted": true }, "description": "Tung Cầu Cầu Vồng (R) kích nổ nội tại cũ và đặt nội tại mới gây lượng sát thương khủng khiếp." },
+        { "step": 4, "action": "E", "timing": "execute", "state_precondition": { "e_placed": true }, "description": "Kích nổ quả cầu E để hoàn tất chuỗi sát thương." }
+      ]
+    }
+  },
+  "Katarina": {
+    "Dagger Bounce Combo": {
+      "steps": [
+        { "step": 1, "action": "E", "timing": "engage", "state_precondition": { "in_range": true }, "description": "Áp sát trực tiếp bằng Shunpo E vào mục tiêu." },
+        { "step": 2, "action": "W", "timing": "mid-combo", "state_precondition": { "in_melee_range": true }, "description": "Thả kiếm W tại chỗ để lấy tốc chạy." },
+        { "step": 3, "action": "Q", "timing": "mid-combo", "state_precondition": { "in_melee_range": true }, "description": "Ném dao Q nảy ra phía sau mục tiêu." },
+        { "step": 4, "action": "R", "timing": "burst", "state_precondition": { "w_dagger_dropped": true }, "description": "Bật Bông Sen Tử Vong (R) xoay tại chỗ sạc đầy sát thương." },
+        { "step": 5, "action": "E", "timing": "execute", "state_precondition": { "q_dagger_dropped": true }, "description": "Lướt E sang dĩa dao Q phía sau mục tiêu để nhặt dao kết liễu." }
+      ]
+    }
+  },
+  "Yone": {
+    "Soul Unbound Ultimate": {
+      "steps": [
+        { "step": 1, "action": "E", "timing": "pre-engage", "state_precondition": { "e_cooldown": false }, "description": "Bật Xuất Hồn (E) để lại thể xác phía sau." },
+        { "step": 2, "action": "Q3", "timing": "engage", "state_precondition": { "q3_ready": true }, "description": "Lao Q3 lướt gió hất tung mục tiêu." },
+        { "step": 3, "action": "R", "timing": "engage", "state_precondition": { "target_airborne": true }, "description": "Tung chiêu cuối Đoạt Mệnh (R) ngay lập tức gom đối thủ lại." },
+        { "step": 4, "action": "W", "timing": "mid-combo", "state_precondition": { "in_melee_range": true }, "description": "Quét kiếm W kiếm lượng giáp ảo chống chịu." },
+        { "step": 5, "action": "Q + AA", "timing": "mid-combo", "state_precondition": { "in_melee_range": true }, "description": "Q thường và chém tay dồn sát thương tích tụ." },
+        { "step": 6, "action": "E", "timing": "execute", "state_precondition": { "e_active": true }, "description": "Bấm E lần nữa rút hồn về thể xác, kích nổ sát thương chuẩn." }
+      ]
+    }
+  },
+  "Akali": {
+    "Perfect Execution Burst": {
+      "steps": [
+        { "step": 1, "action": "R1", "timing": "engage", "state_precondition": { "ult_ready": true }, "description": "Bay qua đầu mục tiêu bằng R1." },
+        { "step": 2, "action": "E1", "timing": "mid-combo", "state_precondition": { "in_range": true }, "description": "Phóng phi tiêu E1 trúng mục tiêu khi vừa bay qua đầu chúng." },
+        { "step": 3, "action": "E2", "timing": "engage", "state_precondition": { "e1_hit": true }, "description": "Kích hoạt E2 bay trở lại áp sát mục tiêu từ xa." },
+        { "step": 4, "action": "Q + AA", "timing": "mid-combo", "state_precondition": { "energy_available": true }, "description": "Tung Q sát thương diện rộng và đánh thường nội tại." },
+        { "step": 5, "action": "W", "timing": "reposition", "state_precondition": { "shroud_ready": true }, "description": "Thả bom khói W để tàng hình và hồi nội năng." },
+        { "step": 6, "action": "R2", "timing": "execute", "state_precondition": { "r2_window": true }, "description": "Lướt R2 xuyên qua mục tiêu gây sát thương kết liễu cực lớn theo máu đã mất." }
+      ]
+    }
+  },
+  "KhaZix": {
+    "Void Isolation Burst": {
+      "steps": [
+        { "step": 1, "action": "W", "timing": "engage", "state_precondition": { "w_cooldown": false }, "description": "Bắn Gai Hư Không (W) để làm chậm mục tiêu." },
+        { "step": 2, "action": "E", "timing": "engage", "state_precondition": { "in_range": true }, "description": "Nhảy E nhảy xổ vào kẻ địch cô lập." },
+        { "step": 3, "action": "Q", "timing": "burst", "state_precondition": { "in_melee_range": true }, "description": "Nện Q gây lượng sát thương cô lập khổng lồ." },
+        { "step": 4, "action": "R", "timing": "disengage", "state_precondition": { "passive_refresh": true }, "description": "Bật R tàng hình để lấy thêm điểm nội tại và rút lui hoặc tiếp tục truy đuổi." }
+      ]
+    }
+  },
+  "Jhin": {
+    "Deadly Flourish Execute": {
+      "steps": [
+        { "step": 1, "action": "W", "timing": "engage", "state_precondition": { "target_marked": true }, "description": "Bắn W trói chân mục tiêu đã bị đồng minh hoặc bẫy đánh dấu." },
+        { "step": 2, "action": "Q", "timing": "mid-combo", "state_precondition": { "in_range": true }, "description": "Ném lựu đạn nhảy Q nảy qua lính gây thêm sát thương lên mục tiêu." },
+        { "step": 3, "action": "AA", "timing": "execute", "state_precondition": { "fourth_bullet_ready": true }, "description": "Bắn phát súng thứ 4 chí mạng kèm sát thương kết liễu kết thúc mục tiêu." }
+      ]
+    }
+  },
+  "Thresh": {
+    "Death Sentence Flay": {
+      "steps": [
+        { "step": 1, "action": "Q", "timing": "engage", "state_precondition": { "q_line_clear": true }, "description": "Án Tử Q trúng mục tiêu." },
+        { "step": 2, "action": "W", "timing": "engage", "state_precondition": { "ally_nearby": true }, "description": "Ném lồng đèn W về phía đồng đội phía sau." },
+        { "step": 3, "action": "Q", "timing": "engage", "state_precondition": { "q_hit": true }, "description": "Kích hoạt Q lần hai để đu người kéo theo đồng đội bay tới mục tiêu." },
+        { "step": 4, "action": "E", "timing": "mid-combo", "state_precondition": { "in_melee_range": true }, "description": "Lưỡi hái E hất mục tiêu ngược về phía sau làm chậm." },
+        { "step": 5, "action": "R", "timing": "execute", "state_precondition": { "ult_ready": true }, "description": "Bật Đóng Hộp R ép đối phương chạm tường chịu 99% làm chậm." }
+      ]
+    }
+  },
+  "Blitzcrank": {
+    "Rocket Grab Hook": {
+      "steps": [
+        { "step": 1, "action": "W", "timing": "pre-engage", "state_precondition": { "w_cooldown": false }, "description": "Tăng tốc chạy W để chọn góc kéo." },
+        { "step": 2, "action": "Q", "timing": "engage", "state_precondition": { "q_line_clear": true }, "description": "Bắn Bàn Tay Hỏa Tiễn (Q) lôi mục tiêu về." },
+        { "step": 3, "action": "E", "timing": "mid-combo", "state_precondition": { "target_pulled": true }, "description": "Đấm móc E hất tung mục tiêu lên trời." },
+        { "step": 4, "action": "R", "timing": "execute", "state_precondition": { "target_airborne": true }, "description": "Kích hoạt Trường Điện Từ (R) gây câm lặng diện rộng chặn đối thủ dùng kỹ năng chạy trốn." }
+      ]
+    }
+  },
+  "Syndra": {
+    "Scatter the Weak Burst": {
+      "steps": [
+        { "step": 1, "action": "Q", "timing": "engage", "state_precondition": { "q_cooldown": false }, "description": "Đặt quả cầu Q." },
+        { "step": 2, "action": "E", "timing": "engage", "state_precondition": { "sphere_active": true }, "description": "Quét tan kẻ yếu E đẩy quả cầu đi gây làm choáng tầm xa." },
+        { "step": 3, "action": "W", "timing": "mid-combo", "state_precondition": { "target_stunned": true }, "description": "Nhấc một quả cầu hoặc lính W ném trúng mục tiêu làm chậm tiếp." },
+        { "step": 4, "action": "R", "timing": "execute", "state_precondition": { "multiple_spheres_active": true }, "description": "Kích hoạt R dồn toàn bộ số cầu trên sân nện vào đầu kết liễu đối phương." }
       ]
     }
   }

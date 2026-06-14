@@ -22,7 +22,8 @@
   "CHAOS": {
     "parameters": {
       "randomness_level": 0.80,
-      "execution_error_scale": 2.0
+      "execution_error_scale": 2.0,
+      "chaos_intensity": 0.80
     },
     "ruleset_overrides": [
       "ability_mutation_enabled",
@@ -30,6 +31,20 @@
       "vision_instability"
     ],
     "calibration_source": "Synthetic Baseline",
+    "chaos_modifiers": {
+      "combat_distortion": [
+        { "id": "cooldown_shift", "name": "Biến Động Hồi Chiêu", "description": "Thời gian hồi chiêu thay đổi ngẫu nhiên ±20%.", "base_impact": 0.08 },
+        { "id": "ability_swap", "name": "Hoán Đổi Kỹ Năng", "description": "Các kỹ năng hoán đổi ngẫu nhiên mỗi 3 phút.", "base_impact": 0.12 }
+      ],
+      "map_instability": [
+        { "id": "vision_flicker", "name": "Tầm Nhìn Chập Chờn", "description": "Tầm nhìn bị hạn chế làm giảm thời gian phản xạ đối phương.", "base_impact": -0.10 },
+        { "id": "lane_narrowing", "name": "Thu Hẹp Lane", "description": "Đường đi hẹp lại làm tăng khả năng trúng kỹ năng định hướng.", "base_impact": 0.05 }
+      ],
+      "rule_break_events": [
+        { "id": "revive_event", "name": "Sự Kiện Hồi Sinh", "description": "Hồi sinh ngay lập tức ở lần nằm xuống đầu tiên.", "base_impact": 0.20 },
+        { "id": "double_ult", "name": "X2 Cửa Sổ Chiêu Cuối", "description": "Nhân đôi hiệu ứng hoặc sát thương của chiêu cuối.", "base_impact": 0.25 }
+      ]
+    },
     "augments_pool": {
       "silver": [
         {

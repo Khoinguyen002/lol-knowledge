@@ -83,10 +83,21 @@ async function run() {
     if (structured_pipeline_output) {
       console.log(`[GAME MODE]         : ${structured_pipeline_output.Game_Mode} (Rules: ${structured_pipeline_output.Mode_Ruleset})`);
       console.log(`[TRUTH LAYER]       : ${structured_pipeline_output.Truth_Layer}`);
-      console.log(`[SIMULATION]        : ${structured_pipeline_output.Stochastic_Simulation}`);
-      console.log(`[MUTATIONS]         : ${structured_pipeline_output.Mutations_Applied}`);
+      console.log(`[SIMULATION STATS]  :`);
+      const stats = structured_pipeline_output.Stats_Distribution || {};
+      console.log(`   - Mean Win Prob  : ${stats.mean}`);
+      console.log(`   - Std Deviation  : ${stats.std}`);
+      console.log(`   - Skewness       : ${stats.skew} (Heavy-tailed distribution)`);
+      console.log(`   - Percentiles    : ${stats.percentiles}`);
       if (structured_pipeline_output.Selected_Augments) {
         console.log(`[SELECTED AUGMENTS] : ${structured_pipeline_output.Selected_Augments}`);
+      }
+      if (structured_pipeline_output.Causal_Chains && structured_pipeline_output.Causal_Chains.length > 0) {
+        console.log(`[CAUSAL CHAINS]     :`);
+        structured_pipeline_output.Causal_Chains.forEach(chain => {
+          const sign = chain.winrateImpact >= 0 ? '+' : '';
+          console.log(`   - ${chain.name} -> (Freq: ${chain.frequency}%, Avg Impact: ${chain.impact}) -> Winrate impact: ${sign}${chain.winrateImpact.toFixed(1)}%`);
+        });
       }
       console.log(`[CALIBRATION OBS]   : ${structured_pipeline_output.Reality_Calibration_Observer}`);
       console.log(`[STRATEGY EV]       :`);
