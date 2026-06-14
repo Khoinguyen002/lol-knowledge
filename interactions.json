@@ -1,0 +1,28 @@
+{
+  "truth_rules": {
+    "A_absolute": [
+      { "id": "true_damage_bypass", "description": "Sát thương chuẩn không bị giảm bởi Giáp hoặc Kháng Phép." },
+      { "id": "death_disable", "description": "Chết sẽ ngắt mọi kỹ năng đang vận." }
+    ],
+    "B_verified": [
+      { "champion": "Jax", "ability": "E", "tags": ["dodge_auto_attacks", "reduce_aoe_25", "cc_stun"] },
+      { "champion": "Yasuo", "ability": "W", "tags": ["block_projectiles"] },
+      { "champion": "Fiora", "ability": "W", "tags": ["block_all_damage", "block_cc", "reflect_cc"] }
+    ],
+    "constraint_locks": [
+      { "subject": "Yasuo W", "target_tags": ["ground_targeted", "laser"], "can_block": false, "reason": "Tường gió chỉ chặn đạn đạo (projectiles)." },
+      { "subject": "Jax E", "target_tags": ["turret_shot"], "can_dodge": false, "reason": "Phản Công không thể né phát bắn từ trụ." }
+    ]
+  },
+  "coupling_factors": {
+    "skill_delta_multiplier": {
+      "High_vs_Low": 1.4,
+      "Medium_vs_Medium": 1.0,
+      "Low_vs_High": 0.6
+    }
+  },
+  "domain_weights": {
+    "combat_mechanics": { "A": 1.0, "B": 0.8, "C": 0.4 },
+    "meta_strategy": { "recency": 1.0, "B": 0.8, "C": 0.5 }
+  }
+}

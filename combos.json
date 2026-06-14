@@ -1,0 +1,21 @@
+{
+  "Jax": {
+    "Burst Combo": {
+      "steps": [
+        { "step": 1, "action": "E", "timing": "pre-engage", "state_precondition": { "enemy_in_range": false, "auto_attack_window": false }, "description": "Kích hoạt E trước để tích điểm né đòn và chuẩn bị làm choáng." },
+        { "step": 2, "action": "Q", "timing": "engage", "state_precondition": { "enemy_in_range": true, "dash_target_available": true }, "description": "Nhảy Q vào mục tiêu." },
+        { "step": 3, "action": "AA", "timing": "mid-combo", "state_precondition": { "in_melee_range": true }, "description": "Đánh thường ngay sau khi đáp." },
+        { "step": 4, "action": "W", "timing": "auto-reset", "state_precondition": { "auto_attack_window": true }, "description": "Kích hoạt W ngay sau đòn đánh thường để reset animation và dồn sốc sát thương." }
+      ]
+    }
+  },
+  "Yasuo": {
+    "Airborne Combo": {
+      "steps": [
+        { "step": 1, "action": "Q3", "timing": "engage", "state_precondition": { "tornado_ready": true }, "description": "Tung lốc (Q3) trúng mục tiêu." },
+        { "step": 2, "action": "R", "timing": "airborne_window", "state_precondition": { "target_airborne": true }, "description": "Bấm R ngay lập tức để hất tung và gây sát thương." },
+        { "step": 3, "action": "Q", "timing": "post-ult", "state_precondition": { "in_melee_range": true }, "description": "Sau khi đáp xuống, Q lập tức để bồi sát thương." }
+      ]
+    }
+  }
+}

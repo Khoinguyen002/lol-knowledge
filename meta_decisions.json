@@ -1,0 +1,47 @@
+{
+  "16.12.1": {
+    "top": {
+      "Jax": {
+        "tier": "S",
+        "max_order": ["W", "E", "Q"],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm an toàn, dùng E để trade ngắn nếu đối phương chủ động đánh.",
+          "mid_game": "Lv 6-11: Cấu rỉa bằng combo Đánh thường lính -> Q vào tướng địch -> W (kích hoạt R nội tại).",
+          "late_game": "Lv 12-18: Đẩy lẻ áp lực biên, sẵn sàng 1vs2 nhờ chỉ số kháng từ chiêu cuối."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            { "condition": "Kém 20 CS & Thua 1 mạng", "action": "Bỏ lính đánh xa, đóng băng lính gần trụ. Mua Giày Thép Gai sớm chống chịu." },
+            { "condition": "Trụ 1 bay sớm", "action": "Đổi đường xuống Bot hoặc farm đóng băng ở trụ 2. Ưu tiên lên Rìu Tiamat dọn lính nhanh." }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_vs_Fiora": 49.5,
+          "winrate_general": 51.2,
+          "pickrate": 8.2,
+          "source": "OP.GG High Elo"
+        }
+      },
+      "Fiora": {
+        "tier": "A",
+        "max_order": ["Q", "E", "W"],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Cấu rỉa Q vào Điểm Yếu. Giữ W để phản đòn khống chế cứng.",
+          "mid_game": "Lv 6-11: Khô máu với R, ưu tiên đánh xoay quanh mục tiêu lẻ.",
+          "late_game": "Lv 12-18: Splitpush cực mạnh, 1vs1 vô địch."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            { "condition": "Thua đồ đường trên", "action": "Ôm farm chờ Rìu Mãng Xà. Tuyệt đối không trade tay đôi nếu chiêu W đang hồi." }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_vs_Jax": 50.5,
+          "winrate_general": 50.1,
+          "pickrate": 7.1,
+          "source": "OP.GG High Elo"
+        }
+      }
+    }
+  }
+}

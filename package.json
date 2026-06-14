@@ -1,0 +1,14 @@
+{
+  "name": "lol-knowledge-rag",
+  "version": "1.0.0",
+  "description": "Local RAG for League of Legends game data using Data Dragon and Transformers.js",
+  "type": "module",
+  "main": "query.js",
+  "scripts": {
+    "sync": "node sync.js",
+    "query": "node query.js"
+  },
+  "dependencies": {
+    "@xenova/transformers": "^2.17.2"
+  }
+}
