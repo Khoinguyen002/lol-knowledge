@@ -12,3 +12,6 @@ trigger: always_on
 6. **Nguyên tắc tư vấn Lõi (Augments) trong ARAM Hỗn Loạn:**
    - Khi tư vấn lựa chọn lõi, luôn phân tích độ tương thích của lõi với lối lên đồ hiện tại của người dùng (ví dụ: AP TF, AD Vayne).
    - Nếu cả 3 lựa chọn lõi hiện tại đều không phải là lõi tối ưu/lõi độc quyền cho tướng (trấn phái) mà chỉ ở mức "khá/dùng tạm", **PHẢI chủ động đề xuất người dùng sử dụng lượt roll** để tìm kiếm lõi mạnh hơn, thay vì chọn giải pháp an toàn.
+7. **Quy tắc sử dụng tìm kiếm Web (search_web) để tối ưu tốc độ phản hồi:**
+   - CHỈ dùng `search_web` khi gặp thông tin về chế độ chơi mới, lõi công nghệ lạ hoặc cơ chế chưa có trong CSDL local để tránh ảo giác.
+   - Đối với các kèo đấu cơ bản, combo tướng hoặc cơ chế quen thuộc đã có trong CSDL local, TUYỆT ĐỐI không dùng `search_web` để phản hồi nhanh nhất.
