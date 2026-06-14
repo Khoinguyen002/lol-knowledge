@@ -242,6 +242,7 @@ class AugmentEngine {
     const augmentedState = {
       ...state,
       activeRole,
+      ruleset,
       modifiers: {
         damage_dealt_multiplier: 1.0,
         damage_taken_multiplier: 1.0,
@@ -265,30 +266,54 @@ class AugmentEngine {
     const seed = champion ? champion.length : 5;
 
     if (modeConfig.augments_pool) {
-      const tiers = ['silver', 'gold', 'prismatic'];
-      for (const tier of tiers) {
+      // Giả lập hệ thống mốc level thực tế của ARAM Mayhem: lv 1, 3, 7, 11, 15
+      const levels = [1, 3, 7, 11, 15];
+      for (const lvl of levels) {
+        // Seeded xác định bậc cho mốc level này
+        let tier = 'silver';
+        const randVal = (seed * lvl * 17) % 100;
+        if (lvl === 1 || lvl === 3) {
+          tier = randVal < 70 ? 'silver' : 'gold';
+        } else if (lvl === 7) {
+          tier = randVal < 30 ? 'silver' : (randVal < 80 ? 'gold' : 'prismatic');
+        } else if (lvl === 11) {
+          tier = randVal < 50 ? 'gold' : 'prismatic';
+        } else if (lvl === 15) {
+          tier = 'prismatic';
+        }
+
         const pool = modeConfig.augments_pool[tier] || [];
         if (pool.length === 0) continue;
 
-        // Seeded generation of 3 options
-        const tierOffset = tier === 'silver' ? 0 : (tier === 'gold' ? 1 : 2);
+        // Sinh 3 phương án lựa chọn ngẫu nhiên (seeded)
         const options = [];
         for (let i = 0; i < 3; i++) {
-          const index = (seed + tierOffset * 7 + i * 13) % pool.length;
+          const index = (seed + lvl * 7 + i * 13) % pool.length;
           options.push(pool[index]);
         }
 
-        // De-duplicate options
+        // Loại trùng lặp giữa các lựa chọn và các lõi đã được chọn trước đó
         const uniqueOptions = [];
         const seenIds = new Set();
         for (const opt of options) {
-          if (!seenIds.has(opt.id)) {
+          if (!seenIds.has(opt.id) && !chosenAugments.some(ca => ca.id === opt.id)) {
             seenIds.add(opt.id);
             uniqueOptions.push(opt);
           }
         }
 
-        // Choose best match for activeRole
+        // Nếu tất cả phương án bị trùng, lấy lõi đầu tiên trong pool chưa chọn
+        if (uniqueOptions.length === 0) {
+          for (const opt of pool) {
+            if (!chosenAugments.some(ca => ca.id === opt.id)) {
+              uniqueOptions.push(opt);
+              break;
+            }
+          }
+        }
+        if (uniqueOptions.length === 0) uniqueOptions.push(pool[0]);
+
+        // Chọn nâng cấp tốt nhất phù hợp với activeRole
         let bestAug = uniqueOptions.find(a => a.type === activeRole);
         if (!bestAug) {
           bestAug = uniqueOptions.find(a => a.type === 'all');
@@ -297,9 +322,9 @@ class AugmentEngine {
           bestAug = uniqueOptions[0];
         }
 
-        chosenAugments.push(bestAug);
+        chosenAugments.push({ ...bestAug, level_selected: lvl });
 
-        // Apply modifications
+        // Áp dụng modifier
         if (bestAug.modifiers) {
           for (const [modKey, val] of Object.entries(bestAug.modifiers)) {
             if (typeof val === 'number') {
@@ -325,6 +350,10 @@ class MechanicsEngine {
     const stats = state.stats || {};
     const modifiers = customModifiers || state.modifiers || {};
     const role = state.activeRole || 'fighter';
+    const ruleset = state.ruleset || [];
+    
+    const noRunes = ruleset.includes("no_runes_disabled");
+    const comboBreaker = ruleset.includes("combo_breaker_active");
 
     // ARAM Base Ruleset / Environmental Physics
     const range = stats.attackrange || 125;
@@ -337,13 +366,25 @@ class MechanicsEngine {
 
     // Phase 1: Pre-Hit (Setup, spacing & reaction time)
     const baseMS = stats.movespeed || 335;
-    const msMod = modifiers.movespeed_multiplier || 1.0;
-    const reactionMod = modifiers.reaction_time_modifier || 0.0;
+    let msMod = modifiers.movespeed_multiplier || 1.0;
+    let reactionMod = modifiers.reaction_time_modifier || 0.0;
+    
+    // Áp dụng Combo Breaker giảm 35% tác động khống chế (giảm tốc và làm chậm phản ứng)
+    if (comboBreaker) {
+      if (msMod < 1.0) msMod = 1.0 - (1.0 - msMod) * 0.65;
+      if (reactionMod > 0) reactionMod *= 0.65;
+    }
     
     const preHitScore = ((baseMS * msMod) / 350) * 0.2 + pokeFactor * 0.5 - reactionMod * 0.4;
 
     // Phase 2: Hit Window (Damage sequencing: Burst vs Sustained)
-    const baseAD = stats.attackdamage || 60;
+    let baseAD = stats.attackdamage || 60;
+    
+    // Áp dụng No Runes: Giảm 5% AD do không có ngọc bổ trợ
+    if (noRunes) {
+      baseAD *= 0.95;
+    }
+    
     const adMod = modifiers.damage_dealt_multiplier || 1.0;
     const asMod = modifiers.attackspeed_multiplier || 1.0;
     const haste = modifiers.ability_haste || 0;
@@ -368,7 +409,13 @@ class MechanicsEngine {
     // Phase 3: Post-Hit (Survivability, shielding & recovery)
     const baseArmor = stats.armor || 30;
     const baseMR = stats.spellblock || 30;
-    const baseHP = stats.hp || 600;
+    let baseHP = stats.hp || 600;
+    
+    // Áp dụng No Runes: Giảm 50 HP do không có ngọc bổ trợ
+    if (noRunes) {
+      baseHP = Math.max(100, baseHP - 50);
+    }
+    
     const hpBonus = modifiers.hp_bonus || 0;
     const sizeMod = modifiers.size_multiplier || 1.0;
     const finalHP = (baseHP + hpBonus) * sizeMod;

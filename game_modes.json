@@ -28,7 +28,11 @@
     "ruleset_overrides": [
       "ability_mutation_enabled",
       "cooldown_randomization",
-      "vision_instability"
+      "vision_instability",
+      "no_runes_disabled",
+      "combo_breaker_active",
+      "flash_locked",
+      "exhaust_banned"
     ],
     "calibration_source": "Synthetic Baseline",
     "chaos_modifiers": {
@@ -74,6 +78,15 @@
             "attackspeed_multiplier": 1.15
           },
           "description": "Tăng 15% Tốc độ đánh."
+        },
+        {
+          "id": "multishot",
+          "name": "Bắn Nhiều Tia",
+          "type": "adc",
+          "modifiers": {
+            "damage_dealt_multiplier": 1.15
+          },
+          "description": "Đòn đánh thường gây thêm +15% sát thương diện rộng nhưng giảm tầm đánh đi 50."
         }
       ],
       "gold": [
@@ -104,6 +117,25 @@
             "damage_dealt_multiplier": 1.08
           },
           "description": "Kỹ năng nhận ngẫu nhiên thuộc tính Lướt, Đạn Đạo hoặc Đòn Đánh."
+        },
+        {
+          "id": "chain_reaction",
+          "name": "Phản Ứng Dây Chuyền",
+          "type": "mage",
+          "modifiers": {
+            "damage_dealt_multiplier": 1.10
+          },
+          "description": "Các kỹ năng trúng đích gây thêm hiệu ứng phát nổ lan sát thương phép."
+        },
+        {
+          "id": "hellbent",
+          "name": "Quyết Liệt",
+          "type": "fighter",
+          "modifiers": {
+            "movespeed_multiplier": 1.20,
+            "lifesteal": 10
+          },
+          "description": "Tăng 20% tốc độ di chuyển và 10% hút máu toàn phần khi lượng máu dưới 40%."
         }
       ],
       "prismatic": [
@@ -164,6 +196,24 @@
             "reaction_time_modifier": -0.1
           },
           "description": "Tầm nhìn thay đổi liên tục, kẻ địch mất dấu và giảm thời gian phản ứng."
+        },
+        {
+          "id": "dimension_shift",
+          "name": "Dịch Chuyển Chiều Space",
+          "type": "all",
+          "modifiers": {
+            "untargetable_on_low_hp": true
+          },
+          "description": "Khi máu dưới 30%, dịch chuyển tức thời về phía sau và không thể bị chỉ định trong 1.5s."
+        },
+        {
+          "id": "echo_cast",
+          "name": "Thi Triển Tiếng Vọng",
+          "type": "mage",
+          "modifiers": {
+            "cooldown_multiplier": 0.80
+          },
+          "description": "Kỹ năng cơ bản có 20% cơ hội được thi triển lần thứ hai miễn phí."
         }
       ]
     }

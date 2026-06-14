@@ -58,7 +58,7 @@ Module Calibration (Chỉnh chuẩn) hoạt động dưới dạng **Observer (N
 ## Cấu trúc thư mục 📂
 
 ```text
-e:/Lol Knowledge/
+./ (Workspace Root)
 ├── config.json          # Pin phiên bản đang sử dụng (VD: 16.12.1)
 ├── game_modes.json      # [UPDATED V14.2] Cấu hình Mode và Pool Nâng Cấp vật lý (Silver, Gold, Prismatic)
 ├── meta_decisions.json  # Chứa Base Meta Strategy và Reality Anchor
@@ -74,33 +74,41 @@ e:/Lol Knowledge/
 
 ---
 
-## Hướng dẫn sử dụng 🚀
+## Hướng dẫn sử dụng & Cơ chế Đồng Bộ (Sync) 🚀
 
-### 1. Đồng bộ dữ liệu (Sync Data)
-Để tải 170+ tướng và đóng gói thành DB kèm V14.2 Engine:
+### 1. Cơ chế hoạt động của `sync.js`
+> [!IMPORTANT]
+> Lệnh `npm run sync` **KHÔNG tự động cập nhật luật chơi hay lõi nâng cấp** từ trên mạng về. Riot không cung cấp API cho các chế độ chơi đặc biệt.
+>
+> - **Dữ liệu Riot (Online)**: Tải chỉ số tướng và trang bị trực tiếp từ Riot Data Dragon.
+> - **Dữ liệu Luật & Combo (Offline/Local)**: Đọc từ các file JSON trong máy của bạn (`game_modes.json`, `combos.json`, `interactions.json`, `meta_decisions.json`).
+>
+> **Khi bạn thay đổi bất kỳ cấu hình local nào (như thêm combo, sửa lõi, chỉnh luật), bạn BẮT BUỘC phải chạy lại lệnh sync dưới đây để hệ thống biên dịch lại database vector mới.**
+
+### 2. Cách tùy biến luật chơi & combos
+- **Thêm/sửa Combo tướng**: Sửa file [combos.json](file:///e:/Lol%20Knowledge/combos.json).
+- ** nerf/buff Lõi nâng cấp hoặc đổi Luật chơi**: Sửa file [game_modes.json](file:///e:/Lol%20Knowledge/game_modes.json).
+- **Thêm tương tác đặc biệt**: Sửa file [interactions.json](file:///e:/Lol%20Knowledge/interactions.json).
+
+Sau khi sửa xong, chạy lệnh đồng bộ:
 ```bash
 npm run sync
 ```
 
-### 2. Tìm kiếm kiến thức đa vũ trụ (Query)
-Trải nghiệm cách hệ thống chọn lõi động và tính điểm combat thực tế:
+### 3. Tìm kiếm kiến thức đa vũ trụ (Query)
+Trải nghiệm cách hệ thống chọn 5 lõi động chuẩn ARAM Mayhem và tính điểm combat thực tế:
 
 **Jax mặc định (Fighter):**
 ```bash
 node query.js "Jax hỗn loạn"
-# Hệ thống chọn lõi: Tay Đòn Nặng, Lưỡi Kiếm Hút Máu, Tầm Nhìn Bất Ổn.
+# Hệ thống tự chọn 5 lõi theo mốc lv: Tay Đòn Nặng, Dệt Phép, Cường Hóa Biến Dị, Tầm Nhìn Bất Ổn, Dịch Chuyển Chiều Space.
 ```
 
-**Jax lên phép (Mage Jax):**
+**Lucian mặc định (ADC):**
 ```bash
-node query.js "Jax lên mũ phù thủy ap hỗn loạn"
-# Nhận dạng vai trò Mage. Chọn lõi: Dệt Phép, Robot Chiêu Cuối.
+node query.js "Lucian hỗn loạn"
+# Chọn các lõi tối ưu cho xạ thủ: Chân Khéo, Bắn Nhiều Tia, Phản Ứng Dây Chuyền...
 ```
 
-**Jax đỡ đòn (Tank Jax):**
-```bash
-node query.js "Jax lên giáp gai đỡ đòn hỗn loạn"
-# Nhận dạng vai trò Tank. Chọn lõi: Tay Đòn Nặng, Khổng Lồ Hóa (size +50%).
-```
+*Output hiển thị rõ ràng thông số [GAME MODE] kèm đầy đủ ruleset của ARAM Mayhem thực tế.*
 
-*Output hiển thị rõ ràng thông số [GAME MODE], [MUTATIONS], [SELECTED AUGMENTS], và độ nhiễu ±% của [SIMULATION] dựa trên từng kịch bản.*
