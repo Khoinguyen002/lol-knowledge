@@ -1,24 +1,47 @@
-# LoL Knowledge RAG System 🎮🤖
+# V14 Multi-Mode Game World Engine 🎮🤖
+*(Tiến hóa từ hệ thống LoL Knowledge RAG)*
 
-Hệ thống RAG (Retrieval-Augmented Generation) tìm kiếm ngữ cảnh cục bộ siêu gọn nhẹ dùng cho dữ liệu game League of Legends (Liên Minh Huyền Thoại), chạy hoàn toàn offline trên CPU máy bạn mà không cần bất kỳ API key nào.
+Hệ thống RAG tìm kiếm ngữ cảnh cục bộ siêu gọn nhẹ dùng cho dữ liệu game League of Legends (Liên Minh Huyền Thoại) nay đã được đập đi xây lại theo **Clean Architecture**, trở thành một **Vũ trụ Giả lập Vật lý Đa quy tắc (Multi-Mode Game World Engine)**.
 
-## Tính năng nổi bật ✨
+---
 
-1. **Semantic Chunks Tường Minh:** Không chia nhỏ văn bản thô theo kích thước ký tự cố định. Dữ liệu của 170+ tướng được phân tách thành các cấu trúc ngữ nghĩa rõ ràng:
-   * **Overview:** Tiểu sử, vai trò, thuộc tính cơ bản.
-   * **Abilities (Passive, Q, W, E, R):** Tên chiêu, mô tả chi tiết, thời gian hồi chiêu, năng lượng tiêu hao, tầm đánh.
-   * **Combos & Counter:** Mẹo phối hợp chiêu thức và mẹo đối phó với từng vị tướng.
-   * **Items:** Giá vàng, công thức ghép, thuộc tính tăng thêm.
-2. **Hỗ trợ Song ngữ (English & Vietnamese):** Tải và lập chỉ mục dữ liệu song song của cả hai ngôn ngữ giúp tìm kiếm cực nhạy với cả thuật ngữ tiếng Anh và tiếng Việt.
-3. **Mô hình Embedding Đa ngôn ngữ (Multilingual):** Sử dụng model `Xenova/multilingual-e5-small` (~118 triệu tham số, kích thước ~230MB) chạy cục bộ trên CPU thông qua Transformers.js.
-4. **Hybrid Search (Vector + Từ khóa):** Tính toán độ tương đồng kết hợp:
-   $$\text{Hybrid Score} = 0.6 \times \text{Cosine Similarity} + 0.4 \times \text{Keyword Overlap}$$
-5. **Rule-based Reranking (Bộ tái xếp hạng theo luật):** 
-   Tự động phát hiện ý đồ câu hỏi (Tên tướng, loại kỹ năng, thuộc tính muốn hỏi như hồi chiêu, sát thương, năng lượng) và cộng điểm thưởng (boost) tương ứng:
-   * Trùng khớp tên tướng: `+0.25`
-   * Trùng khớp kỹ năng (Q/W/E/R/Passive): `+0.25`
-   * Trùng khớp thuộc tính (Cooldown/Damage/Cost): `+0.20`
-6. **Version Pinning (Chốt phiên bản):** Dữ liệu được lưu trữ riêng biệt theo phiên bản (ví dụ `db_16.12.1.json`) tránh tình trạng tự động update làm hỏng cơ sở dữ liệu cũ.
+## Tính năng nổi bật & Kiến trúc V14 ✨
+
+Hệ thống không còn là một bộ RAG tra cứu văn bản thông thường, mà là một công cụ mô phỏng kết quả giao tranh và tư vấn chiến thuật dựa trên xác suất và luật lệ thay đổi linh hoạt theo Mode.
+
+### 1. Kiến trúc Game Mode Layer (The Rule Injection System)
+Chế độ chơi (Game Mode) không chỉ là thông số (Config), mà là một bộ bẻ cong quy tắc (Semantics):
+- **GameModeConfig:** Xác định độ nhiễu `randomness_level` (0.15 cho SR, 0.4 cho ARAM, 0.8 cho CHAOS).
+- **GameModeRuleset:** Bẻ cong luật lệ cơ bản (Ví dụ: ARAM sẽ tắt tính năng Biến Về, giảm 50% hồi máu).
+- **ModeMutation:** Bơm đột biến vào runtime (đổi chiêu, thay đổi thông số phép) thông qua cơ chế *Seeded Deterministic*.
+
+### 2. Mô Phỏng 3 Tầng Máy Gia Tốc (3-Layer Simulation Engine)
+Để tránh anti-pattern "God Object", hệ thống tính toán (Simulation) được chặt làm 3 phần rạch ròi:
+1. ⚙️ **MechanicsEngine (Tầng Cơ Học Tĩnh):** Tính toán logic nguyên thủy của game, hoàn toàn Deterministic (Toán học tĩnh 100%, không đổ xúc xắc).
+2. ⚡ **ModeMutationEngine (Tầng Đột Biến):** Tiêm (Inject) các ruleset dị biệt của Game Mode. Cơ chế đột biến dựa trên Hạt giống (Seed) để đảm bảo có thể Debug và tái tạo (không Random bậy bạ ở Runtime).
+3. 🎲 **HumanNoiseEngine (Tầng Khuyết Điểm Con Người):** Bơm sai số ngẫu nhiên vào kết quả. Mức độ bơm tuỳ thuộc vào `randomness_level` cấu hình ở Game Mode đó. Vòng lặp Monte Carlo sẽ quét qua đây 50 lần.
+
+### 3. Passive Calibration Observer
+Module Calibration (Chỉnh chuẩn) hoạt động dưới dạng **Observer (Người quan sát)**. Nó tính toán và báo cáo độ lệch (Drift) giữa giả lập và thực tế (OP.GG hoặc ARAM Zone), nhưng tuyệt đối **không được phép can thiệp** vào kết quả mô phỏng đang chạy để đảm bảo tính minh bạch khoa học.
+
+### 4. Hybrid Search & RAG Core (Bản lề lưu trữ)
+- **Semantic Chunks:** 170+ tướng được chẻ nhỏ ra (Overview, Abilities, Combos, Items).
+- **Embeddings cục bộ:** Dùng Xenova/multilingual-e5-small chạy trực tiếp CPU.
+- **Reranking:** Tự phát hiện ý đồ câu hỏi và chấm điểm kết hợp Cosine + Keyword.
+
+---
+
+## Cấu trúc luồng chạy (The World Execution Flow) 🔄
+
+1. **Query** -> Nhập câu hỏi từ người dùng (Vd: "Chế độ hỗn loạn của Jax").
+2. **ModeResolver** -> Xác định Game Mode hiện tại (SR, ARAM, CHAOS).
+3. **TruthNode** -> Trích xuất quy tắc tuyệt đối (bị ảnh hưởng bởi Game Mode).
+4. **StateBuilder** -> Dựng môi trường (Load meta chiến thuật base).
+5. **MechanicsEngine** -> Tính toán nền tảng.
+6. **ModeMutationEngine** -> Bẻ cong luật lệ theo seed.
+7. **HumanNoiseEngine** -> Bơm độ nhiễu và chạy Monte Carlo 50 trials.
+8. **CalibrationObserver** -> Đối chiếu Neo thực tế và báo lỗi (Drift Note).
+9. **RenderNode** -> Nhả kết quả cho User.
 
 ---
 
@@ -26,58 +49,45 @@ Hệ thống RAG (Retrieval-Augmented Generation) tìm kiếm ngữ cảnh cục
 
 ```text
 e:/Lol Knowledge/
-├── config.json          # Pin phiên bản đang sử dụng
-├── db-store.js          # Chứa logic sinh vector, tính cosine, hybrid search và rerank
-├── db_16.12.1.json      # File Vector Database dạng JSON lưu trữ chunks + embeddings
+├── config.json          # Pin phiên bản đang sử dụng (VD: 16.12.1)
+├── game_modes.json      # [NEW V14] Bộ Config và Ruleset cho đa vũ trụ (SR, ARAM, CHAOS)
+├── meta_decisions.json  # Chứa Base Meta Strategy và Reality Anchor
+├── interactions.json    # Chứa Base Truth Rules và Domain Weights
+├── combos.json          # Script thực hiện combo tướng
+├── db-store.js          # [CORE V14] Chứa StagedControllerGraph và 3-Layer Engines
+├── db_16.12.1.json      # Vector DB JSON lưu chunks + embeddings (Data tĩnh)
+├── populate_meta.js     # Script bot cào API tự động gen Meta cho 170+ tướng
 ├── package.json         # Định nghĩa các thư viện dependencies
-├── query.js             # Script CLI truy vấn thông tin
-├── README.md            # Tài liệu hướng dẫn sử dụng
-└── sync.js              # Script crawl Data Dragon từ Riot và lập chỉ mục
+├── query.js             # Script CLI truy vấn thông tin (hiển thị UI V14)
+└── sync.js              # Script build toàn bộ cấu trúc DB và nạp Game Modes
 ```
 
 ---
 
 ## Hướng dẫn sử dụng 🚀
 
-### 1. Cài đặt môi trường
-Đảm bảo máy đã cài đặt Node.js (v18 trở lên). Chạy lệnh cài đặt các thư viện:
-```bash
-npm install
-```
-
-### 2. Đồng bộ dữ liệu (Sync Data)
-Để tải dữ liệu phiên bản mới nhất từ Riot và sinh embeddings (chạy lần đầu tiên):
+### 1. Đồng bộ dữ liệu (Sync Data)
+Để tải 170+ tướng và đóng gói thành DB kèm V14 Engine:
 ```bash
 npm run sync
 ```
-*Để đồng bộ một patch cụ thể:*
+
+### 2. Tìm kiếm kiến thức đa vũ trụ (Query)
+Trải nghiệm cách hệ thống đối xử khác nhau với cùng một tướng qua các Mode:
+
+**Summoner's Rift (Mặc định):**
 ```bash
-node sync.js 16.12.1
+node query.js "Aatrox đánh thường"
 ```
 
-### 3. Tìm kiếm kiến thức (Query)
-Chạy lệnh truy vấn trực tiếp trên Terminal:
+**ARAM Mode:**
 ```bash
-node query.js "Jax chiêu E hồi chiêu bao lâu"
-```
-Hoặc:
-```bash
-npm run query -- "Aatrox nội tại làm gì"
+node query.js "chế độ aram của Aatrox"
 ```
 
-*Để trả về output dạng JSON thô cho các app khác parse:*
+**Chaos Mode:**
 ```bash
-node query.js "Lư hương sôi sục giá bao nhiêu" --json
+node query.js "chế độ hỗn loạn của Aatrox"
 ```
 
----
-
-## Cách Tương tác cùng Antigravity IDE 💬
-Khi bạn chat với Antigravity trong IDE và hỏi các câu hỏi như:
-> "Ê Jax chiêu E ở level 1 hồi chiêu bao lâu?"
-
-Antigravity sẽ tự động chạy script truy vấn dưới nền:
-```bash
-node query.js "Jax E hồi chiêu" --json
-```
-Sau đó đọc kết quả context trả về và tổng hợp câu trả lời chính xác 100% theo patch hiện tại cho bạn!
+*Output hiển thị rõ ràng thông số [GAME MODE], [MUTATIONS], và độ nhiễu ±% của [SIMULATION] dựa trên từng Mode cụ thể.*
