@@ -1,0 +1,34 @@
+{
+  "SR": {
+    "parameters": {
+      "randomness_level": 0.15,
+      "execution_error_scale": 1.0
+    },
+    "ruleset_overrides": [],
+    "calibration_source": "OP.GG High Elo"
+  },
+  "ARAM": {
+    "parameters": {
+      "randomness_level": 0.40,
+      "execution_error_scale": 1.2
+    },
+    "ruleset_overrides": [
+      "vision_irrelevant",
+      "heal_shield_penalty_50",
+      "snowball_summoner_enabled"
+    ],
+    "calibration_source": "ARAM Zone Data"
+  },
+  "CHAOS": {
+    "parameters": {
+      "randomness_level": 0.80,
+      "execution_error_scale": 2.0
+    },
+    "ruleset_overrides": [
+      "ability_mutation_enabled",
+      "cooldown_randomization",
+      "vision_instability"
+    ],
+    "calibration_source": "Synthetic Baseline"
+  }
+}

@@ -64,15 +64,17 @@ async function run() {
 
   const rawChunks = [];
   
-  // Đọc các file JSON cấu trúc V13
-  console.log('Đang đọc các file cấu trúc V13 (combos, meta_decisions, interactions)...');
+  // Đọc các file JSON cấu trúc V14
+  console.log('Đang đọc các file cấu trúc V14 (combos, meta_decisions, interactions, game_modes)...');
   const combosPath = path.resolve(process.cwd(), 'combos.json');
   const metaPath = path.resolve(process.cwd(), 'meta_decisions.json');
   const interPath = path.resolve(process.cwd(), 'interactions.json');
+  const modesPath = path.resolve(process.cwd(), 'game_modes.json');
   
   const combosData = fs.existsSync(combosPath) ? JSON.parse(fs.readFileSync(combosPath, 'utf8')) : {};
   const metaData = fs.existsSync(metaPath) ? JSON.parse(fs.readFileSync(metaPath, 'utf8')) : {};
   const interData = fs.existsSync(interPath) ? JSON.parse(fs.readFileSync(interPath, 'utf8')) : {};
+  const modesData = fs.existsSync(modesPath) ? JSON.parse(fs.readFileSync(modesPath, 'utf8')) : {};
 
   const spellMap = {}; // Scoped spell map
 
@@ -185,6 +187,7 @@ async function run() {
     spellMap: spellMap,
     interactions: interData,
     meta_decisions: metaData,
+    game_modes: modesData,
     evolved_meta_cache: {}, 
     chunks: []
   };
@@ -206,7 +209,7 @@ async function run() {
 
   const configPath = path.resolve(process.cwd(), 'config.json');
   fs.writeFileSync(configPath, JSON.stringify({ activeVersion: version }, null, 2), 'utf8');
-  console.log('ĐỒNG BỘ DỮ LIỆU HOÀN TẤT V13!');
+  console.log('ĐỒNG BỘ DỮ LIỆU HOÀN TẤT V14!');
 }
 
 run();

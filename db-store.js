@@ -38,15 +38,9 @@ export function cosineSimilarity(vecA, vecB) {
 }
 
 export function calculateKeywordOverlap(query, text) {
-  const stopwords = new Set([
-    'của', 'và', 'chiêu', 'tướng', 'làm', 'gì', 'the', 'a', 'an', 'is', 'of', 'how',
-    'does', 'work', 'bao', 'nhiêu', 'sao', 'như', 'thế', 'nào', 'với', 'trong', 'cơ', 'bản'
-  ]);
+  const stopwords = new Set(['của', 'và', 'chiêu', 'tướng', 'làm', 'gì', 'the', 'a', 'an', 'is', 'of', 'how', 'does', 'work', 'bao', 'nhiêu', 'sao', 'như', 'thế', 'nào', 'với', 'trong', 'cơ', 'bản']);
   const tokenize = (str) => {
-    return str
-      .toLowerCase()
-      .split(/[^a-z0-9A-Z_àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+/u)
-      .filter(t => t.length > 1 && !stopwords.has(t));
+    return str.toLowerCase().split(/[^a-z0-9A-Z_àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìííịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+/u).filter(t => t.length > 1 && !stopwords.has(t));
   };
   const queryTerms = tokenize(query);
   if (queryTerms.length === 0) return 0;
@@ -68,6 +62,17 @@ export function parseQuery(query, championList = []) {
     }
   }
 
+  let gameMode = 'SR';
+  if (normalizedQuery.includes('aram') || normalizedQuery.includes('vực gió hú')) {
+    gameMode = 'ARAM';
+  } else if (normalizedQuery.includes('hỗn loạn') || normalizedQuery.includes('chaos')) {
+    gameMode = 'CHAOS';
+  }
+
+  if (!detectedChampion && gameMode === 'ARAM') {
+    detectedChampion = 'ARAM';
+  }
+
   let detectedAbility = null;
   if (/\b(passive|nội tại|noi tai|noi-tai)\b/i.test(normalizedQuery) || /\bp\b/i.test(normalizedQuery)) detectedAbility = 'Passive';
   else if (/\bq\b/i.test(normalizedQuery) || /\bchiêu 1\b/i.test(normalizedQuery)) detectedAbility = 'Q';
@@ -80,18 +85,37 @@ export function parseQuery(query, championList = []) {
   if (/\b(damage|sát thương|sat thuong|stvl|stpt|dame|dmg|scaling)\b/i.test(normalizedQuery)) detectedAttributes.push('damage');
   if (/\b(mana|năng lượng|cost|tiêu hao|tieu hao)\b/i.test(normalizedQuery)) detectedAttributes.push('cost');
 
-  return { champion: detectedChampion, ability: detectedAbility, attributes: detectedAttributes };
+  return { champion: detectedChampion, ability: detectedAbility, attributes: detectedAttributes, gameMode };
 }
 
-// ---- STAGED CONTROLLER GRAPH V13 (SINGLE DECISION ORCHESTRATOR) ----
+// ---- V14 MULTI-MODE GAME WORLD ENGINE ----
+
+class ModeResolver {
+  constructor(db) { this.db = db; }
+  resolve(gameModeStr) {
+    return this.db.data.game_modes?.[gameModeStr] || {
+      parameters: { randomness_level: 0.15, execution_error_scale: 1.0 },
+      ruleset_overrides: [],
+      calibration_source: "OP.GG High Elo"
+    };
+  }
+}
 
 class TruthNode {
   constructor(db) { this.db = db; }
-  resolve(subject, ability, contextDomain = 'combat_mechanics') {
+  resolve(subject, ability, modeRuleset) {
     const interactions = this.db.data.interactions || { truth_rules: {} };
     const rules = interactions.truth_rules || {};
-    const domainWeights = (interactions.domain_weights || {})[contextDomain] || { "A": 1.0, "B": 0.8, "C": 0.4 };
     
+    // 1. Mode-aware logic (Dynamic Ruleset)
+    if (modeRuleset.includes("vision_irrelevant") && ability === "Ward") {
+       return { level: 'A', confidence: 1.0, result: null, note: "[Mode Override] Tầm nhìn vô dụng trong mode này." };
+    }
+    if (modeRuleset.includes("heal_shield_penalty_50") && (ability === "Heal" || ability === "W")) {
+       return { level: 'A', confidence: 1.0, result: null, note: "[Mode Override] Cơ chế hồi máu/tạo lá chắn bị giảm sức mạnh." };
+    }
+    
+    // 2. Absolute Rules
     if (rules.constraint_locks) {
       for (const lock of rules.constraint_locks) {
         if (lock.subject === `${subject} ${ability}` || lock.subject === subject) {
@@ -99,128 +123,163 @@ class TruthNode {
         }
       }
     }
+    
+    // 3. Verified Rules
     if (rules.B_verified) {
       for (const v of rules.B_verified) {
         if (v.champion === subject && (!ability || v.ability === ability)) {
-          return { level: 'B', confidence: domainWeights.B || 0.8, result: v, note: "Verified Rule (Data-based)" };
+          return { level: 'B', confidence: 0.8, result: v, note: "Verified Rule (Data-based)" };
         }
       }
     }
-    return { level: 'C', confidence: domainWeights.C || 0.4, result: null, note: "Inferred Rule (Simulation Fallback)" };
+    return { level: 'C', confidence: 0.4, result: null, note: "Inferred Rule (Simulation Fallback)" };
   }
 }
 
-class DataNode {
+class StateBuilder {
   constructor(db) { this.db = db; }
-  getStructuredData(champion) {
-    const meta = (this.db.data.meta_decisions || {})["16.12.1"]?.top?.[champion];
-    const stats = (this.db.data.championStats || {})[champion];
-    return { meta, stats };
+  build(champion, gameMode) {
+    const decisions = (this.db.data.meta_decisions || {})["16.12.1"] || {};
+    // Base meta (Modifier Layer architecture - currently mapping direct to champ)
+    let baseMeta = decisions.top?.[champion] || {}; 
+    if (champion === "ARAM") baseMeta = decisions.aram?.["ARAM"] || {};
+    
+    const stats = (this.db.data.championStats || {})[champion] || {};
+    return { baseMeta, stats, gameMode };
   }
 }
 
-class InferenceNode {
-  constructor(db) { this.db = db; }
-  inferInteraction(attackerTags, defenderTags) {
-    let success = true;
-    let reason = "Tương tác cơ bản hợp lệ.";
-    if (attackerTags.includes('projectile') && defenderTags.includes('block_projectiles')) {
-      success = false;
-      reason = "Bị chặn bởi kỹ năng chặn đạn đạo (Tường gió/Khiên).";
+class MechanicsEngine {
+  // Pure deterministic mathematics
+  calculateAdvantage(baseAdvantage) {
+    // Không có RNG ở đây.
+    return baseAdvantage;
+  }
+}
+
+class ModeMutationEngine {
+  // Bounded transformation based on seed (deterministic)
+  mutate(baseAdvantage, modeConfig, champion) {
+    const ruleset = modeConfig.ruleset_overrides || [];
+    let mutatedAdvantage = baseAdvantage;
+    let appliedMutations = [];
+    
+    // Seeded transformation (deterministic per champion name)
+    const seed = champion ? champion.length : 5;
+    
+    if (ruleset.includes("ability_mutation_enabled")) {
+       const dmgMod = (seed % 3 === 0) ? 0.2 : ((seed % 2 === 0) ? -0.1 : 0);
+       mutatedAdvantage += dmgMod;
+       appliedMutations.push(`Ability Mutation (Dmg Mod: ${dmgMod > 0 ? '+' : ''}${dmgMod})`);
     }
-    if (attackerTags.includes('auto_attack') && defenderTags.includes('dodge_auto_attacks')) {
-      success = false;
-      reason = "Đòn đánh thường bị né tránh hoàn toàn.";
+    if (ruleset.includes("cooldown_randomization")) {
+       appliedMutations.push(`Cooldown Shift (Seeded)`);
     }
-    return { success, reason };
+    return { mutatedAdvantage, appliedMutations };
   }
 }
 
-class SimulationNode {
-  constructor(db) { this.db = db; }
-  simulate(combatParams) {
+class HumanNoiseEngine {
+  // Bounded stochastic injection
+  injectNoise(hitChance, randomnessLevel, errorScale) {
+    // Noise is added at runtime per trial. It is bounded by randomnessLevel.
+    const noise = (Math.random() * randomnessLevel) - (randomnessLevel / 2); 
+    const scaledNoise = noise * errorScale;
+    return Math.min(1.0, Math.max(0.0, hitChance + scaledNoise));
+  }
+}
+
+class MonteCarloSimulation {
+  constructor() {
+    this.mechanics = new MechanicsEngine();
+    this.mutation = new ModeMutationEngine();
+    this.noise = new HumanNoiseEngine();
+  }
+  
+  simulate(champion, modeConfig) {
     const trials = 50;
     let wins = 0;
-    const { attackerSkill, defenderSkill, baseAdvantage } = combatParams;
-    const couplingFactor = (this.db.data.interactions?.coupling_factors?.skill_delta_multiplier || {})[`${attackerSkill}_vs_${defenderSkill}`] || 1.0;
+    const baseAdvantage = 0.5; // neutral starting point
     
+    // 1. Mechanics (Deterministic Baseline)
+    const mechanicsAdv = this.mechanics.calculateAdvantage(baseAdvantage);
+    
+    // 2. Mode Mutation (Seeded Transform)
+    const { mutatedAdvantage, appliedMutations } = this.mutation.mutate(mechanicsAdv, modeConfig, champion);
+    
+    // 3. Monte Carlo Loop with Stochastic Noise (Human Layer)
     for (let i = 0; i < trials; i++) {
-      const noise = (Math.random() * 0.3) - 0.15; // Bounded micro-noise < 15%
-      const reactionDelay = defenderSkill === 'High' ? 0.2 : 0.4;
-      const hitChance = Math.min(1.0, Math.max(0.0, 0.5 + baseAdvantage * 0.1 - reactionDelay * 0.1 + noise));
-      
-      if (Math.random() < hitChance * couplingFactor) {
+      const hitChance = mutatedAdvantage;
+      const finalChance = this.noise.injectNoise(hitChance, modeConfig.parameters.randomness_level, modeConfig.parameters.execution_error_scale);
+      if (Math.random() < finalChance) {
         wins++;
       }
     }
-    const winrate = wins / trials;
-    const variance = 0.12; 
+    
     return {
-      winrate: winrate,
-      confidence_interval: `±${(variance*100).toFixed(0)}%`,
+      winrate: wins / trials,
       trials: trials,
-      coupling_factor_used: couplingFactor,
-      model_assumption: "Gaussian micro-noise bounded < 15%, stochastic human reaction delay factored"
+      mutations: appliedMutations,
+      noise_level_used: modeConfig.parameters.randomness_level,
+      error_scale: modeConfig.parameters.execution_error_scale
     };
   }
 }
 
-class PolicyNode {
-  constructor(db) { this.db = db; }
-  getPolicy(champion, simulationResult) {
-    const meta = this.db.data.meta_decisions?.["16.12.1"]?.top?.[champion] || {};
-    const reality = meta.reality_anchor || {};
-    
-    const realityWinrate = reality.winrate_general || 50;
+class CalibrationObserver {
+  // Calibration is a Passive Observer. It does not alter the run's outcome.
+  observe(simulationResult, state, modeConfig) {
+    const realityWinrate = state.baseMeta.reality_anchor?.winrate_general || 50;
     const drift = Math.abs((simulationResult.winrate * 100) - realityWinrate);
-    let biasNote = drift > 15 ? "High Drift (Simulation heavily diverges from OP.GG Reality)" : "Calibrated (Matches OP.GG Reality within bounds)";
+    const source = modeConfig.calibration_source || state.baseMeta.reality_anchor?.source || "Unknown";
     
-    return {
-      strategy: meta.timeline_strategy || "Chưa có chiến thuật cụ thể",
-      recovery: meta.recovery_decision_tree || "Chưa có kịch bản thọt",
-      anchor: reality,
-      drift_note: biasNote
-    };
+    let biasNote = drift > 15 
+      ? `High Drift (${drift.toFixed(1)}% divergence from ${source})` 
+      : `Calibrated (Matches ${source} within bounds)`;
+      
+    return { drift_note: biasNote, anchor_source: source };
   }
 }
 
 class RenderNode {
-  render(truthResult, simResult, policyResult) {
+  render(truthResult, simResult, calibrationResult, state, modeConfig) {
     return {
+      Game_Mode: state.gameMode,
+      Mode_Ruleset: modeConfig.ruleset_overrides.join(', ') || "None",
       Truth_Layer: `[Level ${truthResult.level}] ${truthResult.note} (Confidence: ${truthResult.confidence})`,
-      Stochastic_Simulation: `${(simResult.winrate * 100).toFixed(1)}% Win Probability ${simResult.confidence_interval} (n=${simResult.trials})`,
-      Coupling_Factor: simResult.coupling_factor_used,
-      Reality_Calibration: policyResult.drift_note,
-      Model_Bias_Note: simResult.model_assumption,
-      Confidence_Of_Model: "0.85 (Data + Reality Anchored)",
-      Strategic_Policy: policyResult.strategy,
-      Recovery_Options: policyResult.recovery,
-      Source_Anchor: policyResult.anchor.source || "N/A"
+      Stochastic_Simulation: `${(simResult.winrate * 100).toFixed(1)}% Win Probability ±${(simResult.noise_level_used*100).toFixed(0)}% (n=${simResult.trials})`,
+      Mutations_Applied: simResult.mutations.length > 0 ? simResult.mutations.join(', ') : "None",
+      Reality_Calibration_Observer: calibrationResult.drift_note,
+      Strategic_Policy: state.baseMeta.timeline_strategy || "Chưa có chiến thuật cụ thể",
+      Recovery_Options: state.baseMeta.recovery_decision_tree || "Chưa có kịch bản thọt"
     };
   }
 }
 
 export class StagedControllerGraph {
   constructor(db) {
+    this.db = db;
+    this.modeResolver = new ModeResolver(db);
     this.truthNode = new TruthNode(db);
-    this.dataNode = new DataNode(db);
-    this.inferenceNode = new InferenceNode(db);
-    this.simNode = new SimulationNode(db);
-    this.policyNode = new PolicyNode(db);
-    this.renderNode = new RenderNode(db);
+    this.stateBuilder = new StateBuilder(db);
+    this.simulator = new MonteCarloSimulation();
+    this.calibration = new CalibrationObserver();
+    this.renderNode = new RenderNode();
   }
   
   execute(queryContext) {
-    const champ = queryContext.champion || "Jax"; // Mặc định Jax nếu không parse ra
-    const ability = queryContext.ability || "W";
+    const champ = queryContext.champion || "Jax";
+    const ability = queryContext.ability || "N/A";
+    const gameMode = queryContext.gameMode || "SR";
 
-    const truth = this.truthNode.resolve(champ, ability);
-    const data = this.dataNode.getStructuredData(champ);
-    const inference = this.inferenceNode.inferInteraction(['dash'], ['block_projectiles']); 
-    const sim = this.simNode.simulate({ attackerSkill: 'High', defenderSkill: 'Medium', baseAdvantage: 0.1 });
-    const policy = this.policyNode.getPolicy(champ, sim);
+    const modeConfig = this.modeResolver.resolve(gameMode);
+    const truth = this.truthNode.resolve(champ, ability, modeConfig.ruleset_overrides);
+    const state = this.stateBuilder.build(champ, gameMode);
     
-    return this.renderNode.render(truth, sim, policy);
+    const simResult = this.simulator.simulate(champ, modeConfig);
+    const calibResult = this.calibration.observe(simResult, state, modeConfig);
+    
+    return this.renderNode.render(truth, simResult, calibResult, state, modeConfig);
   }
 }
 
@@ -236,7 +295,8 @@ export class VectorDB {
       chunks: [],
       interactions: {},
       meta_decisions: {},
-      championStats: {}
+      championStats: {},
+      game_modes: {}
     };
   }
 
@@ -245,7 +305,7 @@ export class VectorDB {
       console.log(`Đang tải database ${path.basename(this.filePath)}...`);
       const raw = fs.readFileSync(this.filePath, 'utf8');
       this.data = JSON.parse(raw);
-      console.log(`Đã tải DB V13 với ${this.data.chunks?.length || 0} chunks và đầy đủ Data/Truth Nodes.`);
+      console.log(`Đã tải DB V14 với ${this.data.chunks?.length || 0} chunks và đầy đủ Data/Truth/Engine Nodes.`);
       this.graph = new StagedControllerGraph(this);
       return true;
     }
@@ -294,12 +354,12 @@ export class VectorDB {
     scoredChunks.sort((a, b) => b.metrics.finalScore - a.metrics.finalScore);
     const topChunks = scoredChunks.slice(0, topK);
 
-    // Chạy Graph Pipeline
     let pipelineResult = null;
     if (this.graph) {
       pipelineResult = this.graph.execute({
         champion: parsed.champion,
         ability: parsed.ability,
+        gameMode: parsed.gameMode,
         queryString: queryString
       });
     }

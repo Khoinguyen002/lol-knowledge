@@ -81,10 +81,11 @@ async function run() {
 
     console.log('\n================ V13 AI COACH DECISION ================');
     if (structured_pipeline_output) {
+      console.log(`[GAME MODE]         : ${structured_pipeline_output.Game_Mode} (Rules: ${structured_pipeline_output.Mode_Ruleset})`);
       console.log(`[TRUTH LAYER]       : ${structured_pipeline_output.Truth_Layer}`);
       console.log(`[SIMULATION]        : ${structured_pipeline_output.Stochastic_Simulation}`);
-      console.log(`[CALIBRATION]       : ${structured_pipeline_output.Reality_Calibration} (Source: ${structured_pipeline_output.Source_Anchor})`);
-      console.log(`[MODEL ASSUMPTION]  : ${structured_pipeline_output.Model_Bias_Note}`);
+      console.log(`[MUTATIONS]         : ${structured_pipeline_output.Mutations_Applied}`);
+      console.log(`[CALIBRATION OBS]   : ${structured_pipeline_output.Reality_Calibration_Observer}`);
       console.log(`[STRATEGY EV]       :`);
       
       const strategy = structured_pipeline_output.Strategic_Policy;

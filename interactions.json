@@ -2,16 +2,19 @@
   "truth_rules": {
     "A_absolute": [
       { "id": "true_damage_bypass", "description": "Sát thương chuẩn không bị giảm bởi Giáp hoặc Kháng Phép." },
-      { "id": "death_disable", "description": "Chết sẽ ngắt mọi kỹ năng đang vận." }
+      { "id": "death_disable", "description": "Chết sẽ ngắt mọi kỹ năng đang vận." },
+      { "id": "aram_aura", "description": "Trong ARAM: Giảm 50% hồi máu lên đồng minh. Cận chiến nhận thêm Kháng Phép theo cấp." }
     ],
     "B_verified": [
       { "champion": "Jax", "ability": "E", "tags": ["dodge_auto_attacks", "reduce_aoe_25", "cc_stun"] },
       { "champion": "Yasuo", "ability": "W", "tags": ["block_projectiles"] },
-      { "champion": "Fiora", "ability": "W", "tags": ["block_all_damage", "block_cc", "reflect_cc"] }
+      { "champion": "Fiora", "ability": "W", "tags": ["block_all_damage", "block_cc", "reflect_cc"] },
+      { "champion": "ARAM", "ability": "Snowball", "tags": ["true_sight", "dash_to_target", "global"] }
     ],
     "constraint_locks": [
       { "subject": "Yasuo W", "target_tags": ["ground_targeted", "laser"], "can_block": false, "reason": "Tường gió chỉ chặn đạn đạo (projectiles)." },
-      { "subject": "Jax E", "target_tags": ["turret_shot"], "can_dodge": false, "reason": "Phản Công không thể né phát bắn từ trụ." }
+      { "subject": "Jax E", "target_tags": ["turret_shot"], "can_dodge": false, "reason": "Phản Công không thể né phát bắn từ trụ." },
+      { "subject": "ARAM", "target_tags": ["recall"], "can_use": false, "reason": "Không thể Biến Về (B) trong chế độ ARAM." }
     ]
   },
   "coupling_factors": {

@@ -3,7 +3,11 @@
     "top": {
       "Jax": {
         "tier": "S",
-        "max_order": ["W", "E", "Q"],
+        "max_order": [
+          "W",
+          "E",
+          "Q"
+        ],
         "timeline_strategy": {
           "early_game": "Lv 1-5: Tập trung farm an toàn, dùng E để trade ngắn nếu đối phương chủ động đánh.",
           "mid_game": "Lv 6-11: Cấu rỉa bằng combo Đánh thường lính -> Q vào tướng địch -> W (kích hoạt R nội tại).",
@@ -11,8 +15,14 @@
         },
         "recovery_decision_tree": {
           "behind_state": [
-            { "condition": "Kém 20 CS & Thua 1 mạng", "action": "Bỏ lính đánh xa, đóng băng lính gần trụ. Mua Giày Thép Gai sớm chống chịu." },
-            { "condition": "Trụ 1 bay sớm", "action": "Đổi đường xuống Bot hoặc farm đóng băng ở trụ 2. Ưu tiên lên Rìu Tiamat dọn lính nhanh." }
+            {
+              "condition": "Kém 20 CS & Thua 1 mạng",
+              "action": "Bỏ lính đánh xa, đóng băng lính gần trụ. Mua Giày Thép Gai sớm chống chịu."
+            },
+            {
+              "condition": "Trụ 1 bay sớm",
+              "action": "Đổi đường xuống Bot hoặc farm đóng băng ở trụ 2. Ưu tiên lên Rìu Tiamat dọn lính nhanh."
+            }
           ]
         },
         "reality_anchor": {
@@ -24,7 +34,11 @@
       },
       "Fiora": {
         "tier": "A",
-        "max_order": ["Q", "E", "W"],
+        "max_order": [
+          "Q",
+          "E",
+          "W"
+        ],
         "timeline_strategy": {
           "early_game": "Lv 1-5: Cấu rỉa Q vào Điểm Yếu. Giữ W để phản đòn khống chế cứng.",
           "mid_game": "Lv 6-11: Khô máu với R, ưu tiên đánh xoay quanh mục tiêu lẻ.",
@@ -32,7 +46,10 @@
         },
         "recovery_decision_tree": {
           "behind_state": [
-            { "condition": "Thua đồ đường trên", "action": "Ôm farm chờ Rìu Mãng Xà. Tuyệt đối không trade tay đôi nếu chiêu W đang hồi." }
+            {
+              "condition": "Thua đồ đường trên",
+              "action": "Ôm farm chờ Rìu Mãng Xà. Tuyệt đối không trade tay đôi nếu chiêu W đang hồi."
+            }
           ]
         },
         "reality_anchor": {
@@ -40,6 +57,4452 @@
           "winrate_general": 50.1,
           "pickrate": 7.1,
           "source": "OP.GG High Elo"
+        }
+      },
+      "Aatrox": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Aatrox. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.1,
+          "pickrate": 2.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Ahri": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Ahri. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.2,
+          "pickrate": 9.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Akali": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Akali. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.5,
+          "pickrate": 8.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Akshan": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Akshan. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.9,
+          "pickrate": 1.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Alistar": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Alistar. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.8,
+          "pickrate": 1.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Ambessa": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Ambessa. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.8,
+          "pickrate": 7.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Amumu": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Amumu. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.2,
+          "pickrate": 5.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Anivia": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Anivia. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.3,
+          "pickrate": 9.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Annie": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Annie. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.3,
+          "pickrate": 3.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Aphelios": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Aphelios. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.2,
+          "pickrate": 9.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Ashe": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Ashe. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.3,
+          "pickrate": 8.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "AurelionSol": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với AurelionSol. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.2,
+          "pickrate": 3.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Aurora": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Aurora. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.1,
+          "pickrate": 1.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Azir": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Azir. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.2,
+          "pickrate": 7.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Bard": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Bard. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.5,
+          "pickrate": 4.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Belveth": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Belveth. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.6,
+          "pickrate": 9.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Blitzcrank": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Blitzcrank. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.3,
+          "pickrate": 7.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Brand": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Brand. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.5,
+          "pickrate": 1.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Braum": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Braum. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.9,
+          "pickrate": 6.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Briar": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Briar. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.6,
+          "pickrate": 4.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Caitlyn": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Caitlyn. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.9,
+          "pickrate": 8.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Camille": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Camille. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.4,
+          "pickrate": 3.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Cassiopeia": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Cassiopeia. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49,
+          "pickrate": 9.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Chogath": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Chogath. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.1,
+          "pickrate": 2.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Corki": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Corki. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.1,
+          "pickrate": 9.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Darius": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Darius. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.3,
+          "pickrate": 5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Diana": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Diana. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.5,
+          "pickrate": 6.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Draven": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Draven. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.5,
+          "pickrate": 7.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "DrMundo": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với DrMundo. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.2,
+          "pickrate": 8.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Ekko": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Ekko. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.6,
+          "pickrate": 8.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Elise": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Elise. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.3,
+          "pickrate": 1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Evelynn": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Evelynn. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.7,
+          "pickrate": 4.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Ezreal": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Ezreal. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.6,
+          "pickrate": 4.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Fiddlesticks": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Fiddlesticks. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49,
+          "pickrate": 4.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Fizz": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Fizz. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48,
+          "pickrate": 3.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Galio": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Galio. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.9,
+          "pickrate": 6.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Gangplank": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Gangplank. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.5,
+          "pickrate": 2.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Garen": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Garen. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.4,
+          "pickrate": 1.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Gnar": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Gnar. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.3,
+          "pickrate": 7.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Gragas": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Gragas. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.2,
+          "pickrate": 8.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Graves": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Graves. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49,
+          "pickrate": 8.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Gwen": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Gwen. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.8,
+          "pickrate": 3.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Hecarim": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Hecarim. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50,
+          "pickrate": 1.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Heimerdinger": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Heimerdinger. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.8,
+          "pickrate": 8.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Hwei": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Hwei. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.5,
+          "pickrate": 3.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Illaoi": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Illaoi. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.4,
+          "pickrate": 5.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Irelia": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Irelia. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.7,
+          "pickrate": 2.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Ivern": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Ivern. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.1,
+          "pickrate": 6.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Janna": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Janna. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.5,
+          "pickrate": 2.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "JarvanIV": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với JarvanIV. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49,
+          "pickrate": 6.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Jayce": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Jayce. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.5,
+          "pickrate": 7.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Jhin": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Jhin. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.8,
+          "pickrate": 5.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Jinx": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Jinx. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.4,
+          "pickrate": 2.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Kaisa": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Kaisa. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.5,
+          "pickrate": 8.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Kalista": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Kalista. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 52,
+          "pickrate": 9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Karma": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Karma. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.2,
+          "pickrate": 4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Karthus": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Karthus. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.2,
+          "pickrate": 8.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Kassadin": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Kassadin. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.7,
+          "pickrate": 1.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Katarina": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Katarina. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.5,
+          "pickrate": 9.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Kayle": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Kayle. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.8,
+          "pickrate": 5.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Kayn": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Kayn. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49,
+          "pickrate": 3.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Kennen": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Kennen. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.1,
+          "pickrate": 6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Khazix": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Khazix. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.5,
+          "pickrate": 4.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Kindred": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Kindred. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.9,
+          "pickrate": 1.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Kled": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Kled. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.7,
+          "pickrate": 7.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "KogMaw": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với KogMaw. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.8,
+          "pickrate": 8.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "KSante": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với KSante. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51,
+          "pickrate": 7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Leblanc": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Leblanc. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.7,
+          "pickrate": 2.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "LeeSin": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với LeeSin. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.3,
+          "pickrate": 4.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Leona": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Leona. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.1,
+          "pickrate": 6.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Lillia": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Lillia. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.7,
+          "pickrate": 1.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Lissandra": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Lissandra. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.4,
+          "pickrate": 3.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Lucian": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Lucian. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.6,
+          "pickrate": 1.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Lulu": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Lulu. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.2,
+          "pickrate": 6.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Lux": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Lux. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.1,
+          "pickrate": 7.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Malphite": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Malphite. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.4,
+          "pickrate": 6.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Malzahar": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Malzahar. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.9,
+          "pickrate": 2.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Maokai": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Maokai. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.4,
+          "pickrate": 2.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "MasterYi": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với MasterYi. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.3,
+          "pickrate": 4.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Mel": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Mel. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.6,
+          "pickrate": 6.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Milio": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Milio. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 52,
+          "pickrate": 6.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "MissFortune": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với MissFortune. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51,
+          "pickrate": 5.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "MonkeyKing": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với MonkeyKing. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.9,
+          "pickrate": 6.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Mordekaiser": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Mordekaiser. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.9,
+          "pickrate": 3.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Morgana": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Morgana. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.4,
+          "pickrate": 1.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Naafiri": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Naafiri. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.8,
+          "pickrate": 2.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Nami": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Nami. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.2,
+          "pickrate": 2.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Nasus": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Nasus. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.7,
+          "pickrate": 9.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Nautilus": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Nautilus. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.8,
+          "pickrate": 3.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Neeko": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Neeko. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.7,
+          "pickrate": 5.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Nidalee": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Nidalee. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.3,
+          "pickrate": 9.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Nilah": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Nilah. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.2,
+          "pickrate": 5.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Nocturne": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Nocturne. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.7,
+          "pickrate": 5.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Nunu": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Nunu. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.3,
+          "pickrate": 5.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Olaf": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Olaf. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.3,
+          "pickrate": 3.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Orianna": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Orianna. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.7,
+          "pickrate": 7.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Ornn": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Ornn. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.9,
+          "pickrate": 6.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Pantheon": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Pantheon. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.2,
+          "pickrate": 9.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Poppy": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Poppy. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.6,
+          "pickrate": 6.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Pyke": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Pyke. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49,
+          "pickrate": 3.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Qiyana": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Qiyana. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.8,
+          "pickrate": 7.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Quinn": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Quinn. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.7,
+          "pickrate": 3.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Rakan": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Rakan. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.7,
+          "pickrate": 7.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Rammus": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Rammus. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.9,
+          "pickrate": 2.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "RekSai": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với RekSai. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.8,
+          "pickrate": 4.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Rell": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Rell. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.7,
+          "pickrate": 8.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Renata": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Renata. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.7,
+          "pickrate": 1.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Renekton": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Renekton. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.7,
+          "pickrate": 8.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Rengar": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Rengar. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.8,
+          "pickrate": 2.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Riven": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Riven. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.6,
+          "pickrate": 3.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Rumble": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Rumble. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.7,
+          "pickrate": 1.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Ryze": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Ryze. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.1,
+          "pickrate": 8.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Samira": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Samira. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.8,
+          "pickrate": 2.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Sejuani": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Sejuani. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.8,
+          "pickrate": 2.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Senna": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Senna. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.9,
+          "pickrate": 9.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Seraphine": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Seraphine. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.7,
+          "pickrate": 9.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Sett": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Sett. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.6,
+          "pickrate": 7.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Shaco": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Shaco. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.6,
+          "pickrate": 3.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Shen": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Shen. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.6,
+          "pickrate": 1.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Shyvana": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Shyvana. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.2,
+          "pickrate": 5.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Singed": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Singed. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.8,
+          "pickrate": 8.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Sion": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Sion. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.5,
+          "pickrate": 9.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Sivir": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Sivir. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.9,
+          "pickrate": 8.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Skarner": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Skarner. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.8,
+          "pickrate": 4.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Smolder": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Smolder. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.3,
+          "pickrate": 3.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Sona": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Sona. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.1,
+          "pickrate": 5.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Soraka": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Soraka. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.1,
+          "pickrate": 2.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Swain": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Swain. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49,
+          "pickrate": 6.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Sylas": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Sylas. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.3,
+          "pickrate": 2.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Syndra": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Syndra. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49,
+          "pickrate": 8.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "TahmKench": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với TahmKench. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.2,
+          "pickrate": 3.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Taliyah": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Taliyah. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.9,
+          "pickrate": 4.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Talon": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Talon. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.6,
+          "pickrate": 3.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Taric": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Taric. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.1,
+          "pickrate": 9.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Teemo": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Teemo. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.6,
+          "pickrate": 2.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Thresh": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Thresh. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.6,
+          "pickrate": 10,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Tristana": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Tristana. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.1,
+          "pickrate": 6.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Trundle": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Trundle. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.4,
+          "pickrate": 8.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Tryndamere": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Tryndamere. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51,
+          "pickrate": 4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "TwistedFate": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với TwistedFate. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.1,
+          "pickrate": 1.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Twitch": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Twitch. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.2,
+          "pickrate": 9.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Udyr": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Udyr. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.2,
+          "pickrate": 8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Urgot": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Urgot. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.4,
+          "pickrate": 1.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Varus": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Varus. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.3,
+          "pickrate": 4.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Vayne": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Vayne. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.6,
+          "pickrate": 7.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Veigar": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Veigar. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.9,
+          "pickrate": 4.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Velkoz": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Velkoz. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.1,
+          "pickrate": 2.2,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Vex": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Vex. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.5,
+          "pickrate": 1.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Vi": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Vi. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.2,
+          "pickrate": 4.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Viego": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Viego. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.9,
+          "pickrate": 6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Viktor": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Viktor. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.8,
+          "pickrate": 1.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Vladimir": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Vladimir. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.3,
+          "pickrate": 5.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Volibear": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Volibear. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.9,
+          "pickrate": 2.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Warwick": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Warwick. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.4,
+          "pickrate": 1.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Xayah": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Xayah. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.3,
+          "pickrate": 2.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Xerath": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Xerath. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.2,
+          "pickrate": 4.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "XinZhao": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với XinZhao. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.4,
+          "pickrate": 8.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Yasuo": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Yasuo. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.4,
+          "pickrate": 6.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Yone": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Yone. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.1,
+          "pickrate": 3.3,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Yorick": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Yorick. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50,
+          "pickrate": 2.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Yunara": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Yunara. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.2,
+          "pickrate": 9.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Yuumi": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Yuumi. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.3,
+          "pickrate": 8.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Zaahen": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Zaahen. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50.4,
+          "pickrate": 9.6,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Zac": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Zac. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 49.6,
+          "pickrate": 6.9,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Zed": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Zed. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.8,
+          "pickrate": 1.8,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Zeri": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Zeri. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.1,
+          "pickrate": 2.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Ziggs": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Ziggs. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.7,
+          "pickrate": 1.5,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Zilean": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Zilean. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.1,
+          "pickrate": 4.7,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Zoe": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Zoe. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 48.5,
+          "pickrate": 9.4,
+          "source": "Auto-generated Baseline Meta"
+        }
+      },
+      "Zyra": {
+        "tier": "B",
+        "max_order": [
+          "Q",
+          "W",
+          "E"
+        ],
+        "timeline_strategy": {
+          "early_game": "Lv 1-5: Tập trung farm lính và giữ vị trí an toàn với Zyra. Nếu đối phương lao vào, hãy rút lui và chờ gank.",
+          "mid_game": "Lv 6-11: Tận dụng chiêu cuối để kiểm soát Rồng hoặc Sứ Giả. Chơi xoay quanh rừng.",
+          "late_game": "Lv 12-18: Đi cùng đồng đội, ưu tiên bảo vệ chủ lực hoặc dùng sát thương diện rộng trong giao tranh tổng."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Thua đồ và bị ép lane",
+              "action": "Ôm trụ farm an toàn, nhường trụ 1 nếu cần để tránh bị snowball. Lên đồ thủ."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 51.9,
+          "pickrate": 2.1,
+          "source": "Auto-generated Baseline Meta"
+        }
+      }
+    },
+    "aram": {
+      "ARAM": {
+        "tier": "S",
+        "timeline_strategy": {
+          "early_game": "Lv 3-6: Ném cầu tuyết (Snowball) liên tục để check bụi và cấu máu. Đợi team có CC rồi mới all-in.",
+          "mid_game": "Lv 6-13: Giao tranh liên tục. Ưu tiên nhắm vào Xạ thủ hoặc Pháp sư tuyến sau. Đừng ngại chết nếu đổi mạng được chủ lực địch.",
+          "late_game": "Lv 13-18: Đợi lính siêu cấp. Cố gắng clear lính trước khi mở giao tranh để tránh bị đẩy trộm."
+        },
+        "recovery_decision_tree": {
+          "behind_state": [
+            {
+              "condition": "Team toàn tay ngắn, bị cấu rỉa tụt máu",
+              "action": "Ôm trụ, mua trang bị Huyết Trượng/Giáp Máu Warmog, tuyệt đối không ra ngoài ăn lính."
+            },
+            {
+              "condition": "Bị ép sát nhà chính",
+              "action": "Chờ đối phương phạm sai lầm băng trụ, dồn khống chế (CC) vào 1 mục tiêu rồi lật kèo."
+            }
+          ]
+        },
+        "reality_anchor": {
+          "winrate_general": 50,
+          "source": "ARAM Zone Data"
         }
       }
     }
