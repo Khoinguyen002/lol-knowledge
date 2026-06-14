@@ -85,6 +85,9 @@ async function run() {
       console.log(`[TRUTH LAYER]       : ${structured_pipeline_output.Truth_Layer}`);
       console.log(`[SIMULATION]        : ${structured_pipeline_output.Stochastic_Simulation}`);
       console.log(`[MUTATIONS]         : ${structured_pipeline_output.Mutations_Applied}`);
+      if (structured_pipeline_output.Selected_Augments) {
+        console.log(`[SELECTED AUGMENTS] : ${structured_pipeline_output.Selected_Augments}`);
+      }
       console.log(`[CALIBRATION OBS]   : ${structured_pipeline_output.Reality_Calibration_Observer}`);
       console.log(`[STRATEGY EV]       :`);
       

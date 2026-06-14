@@ -29,6 +29,128 @@
       "cooldown_randomization",
       "vision_instability"
     ],
-    "calibration_source": "Synthetic Baseline"
+    "calibration_source": "Synthetic Baseline",
+    "augments_pool": {
+      "silver": [
+        {
+          "id": "heavy_hands",
+          "name": "Tay Đòn Nặng",
+          "type": "fighter",
+          "modifiers": {
+            "damage_dealt_multiplier": 1.05,
+            "damage_taken_multiplier": 1.02
+          },
+          "description": "Đòn đánh thường gây thêm sát thương vật lý theo máu tối đa."
+        },
+        {
+          "id": "spell_weaver",
+          "name": "Dệt Phép",
+          "type": "mage",
+          "modifiers": {
+            "ability_haste": 15
+          },
+          "description": "Tăng 15 Điểm hồi kỹ năng."
+        },
+        {
+          "id": "fleet_footed",
+          "name": "Chân Khéo",
+          "type": "adc",
+          "modifiers": {
+            "attackspeed_multiplier": 1.15
+          },
+          "description": "Tăng 15% Tốc độ đánh."
+        }
+      ],
+      "gold": [
+        {
+          "id": "poro_stampede",
+          "name": "Đàn Poro Càn Quét",
+          "type": "all",
+          "modifiers": {
+            "poro_damage_bonus": 40
+          },
+          "description": "Ném tuyết (Snowball) triệu hồi đàn Poro càn quét gây thêm sát thương chuẩn."
+        },
+        {
+          "id": "vampiric_glaive",
+          "name": "Lưỡi Kiếm Hút Máu",
+          "type": "fighter",
+          "modifiers": {
+            "lifesteal": 12
+          },
+          "description": "Nhận 12% Hút máu toàn phần."
+        },
+        {
+          "id": "ability_mutation_augment",
+          "name": "Cường Hóa Biến Dị",
+          "type": "all",
+          "modifiers": {
+            "ability_mutation_enabled": true,
+            "damage_dealt_multiplier": 1.08
+          },
+          "description": "Kỹ năng nhận ngẫu nhiên thuộc tính Lướt, Đạn Đạo hoặc Đòn Đánh."
+        }
+      ],
+      "prismatic": [
+        {
+          "id": "colossus_growth",
+          "name": "Khổng Lồ Hóa",
+          "type": "tank",
+          "modifiers": {
+            "hp_bonus": 500,
+            "damage_dealt_multiplier": 1.12,
+            "size_multiplier": 1.5
+          },
+          "description": "Nhận 500 Máu, kích cỡ tăng 50%, và tăng 12% Sát thương."
+        },
+        {
+          "id": "ult_bot",
+          "name": "Robot Chiêu Cuối",
+          "type": "mage",
+          "modifiers": {
+            "ult_ability_haste": 80,
+            "ult_damage_multiplier": 1.2
+          },
+          "description": "Chiêu cuối (R) hồi nhanh hơn 80 điểm và gây thêm 20% sát thương."
+        },
+        {
+          "id": "reality_break",
+          "name": "Đột Biến Thực Tại",
+          "type": "all",
+          "modifiers": {
+            "cooldown_multiplier": 0.9
+          },
+          "description": "Các kỹ năng hoán đổi ngẫu nhiên mỗi 3 phút."
+        },
+        {
+          "id": "temporal_spike",
+          "name": "Đỉnh Điểm Thời Gian",
+          "type": "all",
+          "modifiers": {
+            "damage_dealt_multiplier": 1.15
+          },
+          "description": "Nhận đột biến cấp kỹ năng cực hạn sớm ở cấp 1."
+        },
+        {
+          "id": "counterfactual_shield",
+          "name": "Lá Chắn Giả Định",
+          "type": "tank",
+          "modifiers": {
+            "revive_first_death": true
+          },
+          "description": "Nhận khả năng hồi sinh với 50% máu ở lần nằm xuống đầu tiên."
+        },
+        {
+          "id": "zone_instability",
+          "name": "Tầm Nhìn Bất Ổn",
+          "type": "all",
+          "modifiers": {
+            "vision_radius_instability": true,
+            "reaction_time_modifier": -0.1
+          },
+          "description": "Tầm nhìn thay đổi liên tục, kẻ địch mất dấu và giảm thời gian phản ứng."
+        }
+      ]
+    }
   }
 }

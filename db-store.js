@@ -145,44 +145,241 @@ class StateBuilder {
     if (champion === "ARAM") baseMeta = decisions.aram?.["ARAM"] || {};
     
     const stats = (this.db.data.championStats || {})[champion] || {};
-    return { baseMeta, stats, gameMode };
+    return { champion, baseMeta, stats, gameMode };
+  }
+}
+
+class AugmentEngine {
+  classifyActiveRole(champion, baseMeta, queryText, ruleset) {
+    const scores = { fighter: 0.0, tank: 0.0, adc: 0.0, mage: 0.0 };
+    
+    // 1. Champion Base Role Base Score (+3.0)
+    const mages = ['Ahri', 'Anivia', 'Annie', 'Azir', 'Brand', 'Cassiopeia', 'Diana', 'Evelynn', 'Fiddlesticks', 'Fizz', 'Gragas', 'Heimerdinger', 'Karthus', 'Kassadin', 'Katarina', 'LeBlanc', 'Lissandra', 'Lux', 'Malzahar', 'Neeko', 'Orianna', 'Ryze', 'Swain', 'Syndra', 'Taliyah', 'TwistedFate', 'Veigar', 'VelKoz', 'Viktor', 'Vladimir', 'Xerath', 'Ziggs', 'Zoe', 'Zyra'];
+    const adcs = ['Aphelios', 'Ashe', 'Caitlyn', 'Draven', 'Ezreal', 'Jhin', 'Jinx', 'Kai\'Sa', 'Kalista', 'KogMaw', 'Lucian', 'MissFortune', 'Samira', 'Sivir', 'Tristana', 'Twitch', 'Varus', 'Vayne', 'Xayah', 'Zeri'];
+    const tanks = ['Alistar', 'Amumu', 'Blitzcrank', 'Braum', 'ChoGath', 'DrMundo', 'Gnar', 'Leona', 'Malphite', 'Maokai', 'Nautilus', 'Ornn', 'Poppy', 'Rammus', 'Sejuani', 'Shen', 'Sion', 'TahmKench', 'Zac'];
+    
+    if (mages.includes(champion)) scores.mage += 3.0;
+    else if (adcs.includes(champion)) scores.adc += 3.0;
+    else if (tanks.includes(champion)) scores.tank += 3.0;
+    else scores.fighter += 3.0;
+    
+    // 2. Query Intent Score
+    const qLower = (queryText || "").toLowerCase();
+    if (/(ap|phép|pháp sư|sách chiêu hồn)/i.test(qLower)) scores.mage += 2.0;
+    if (/(ad|sát lực|xạ thủ|crit|chí mạng|tốc đánh|bắn)/i.test(qLower)) scores.adc += 2.0;
+    if (/(tank|đỡ đòn|thủ|giáp|máu|khiên)/i.test(qLower)) scores.tank += 2.0;
+    if (/(đấu sĩ|combats|rìu|tam hợp|chinh phục|phân tách)/i.test(qLower)) scores.fighter += 2.0;
+    
+    // 3. Item State Score
+    const mageItems = ['mũ phù thủy', 'trượng', 'đồng hồ cát', 'mặt nạ liandry', 'vọng âm', 'quỷ thư', 'nhẫn doran'];
+    const adcItems = ['vô cực', 'cuồng cung', 'nỏ tử thủ', 'ma vũ', 'gươm suy vong', 'cung phong linh', 'kiếm doran'];
+    const tankItems = ['giáp gai', 'giáp máu', 'tim băng', 'giáp tâm linh', 'khiên thái dương', 'thạch giáp', 'khiên doran'];
+    const fighterItems = ['tam hợp', 'rìu mãng xà', 'móng vuốt sterak', 'rìu đen', 'chùy hấp huyết', 'búa rìu sát thần'];
+    
+    for (const item of mageItems) { if (qLower.includes(item)) scores.mage += 2.0; }
+    for (const item of adcItems) { if (qLower.includes(item)) scores.adc += 2.0; }
+    for (const item of tankItems) { if (qLower.includes(item)) scores.tank += 2.0; }
+    for (const item of fighterItems) { if (qLower.includes(item)) scores.fighter += 2.0; }
+    
+    // 4. Mode Ruleset Score
+    if (ruleset && ruleset.includes("snowball_summoner_enabled")) {
+      scores.fighter += 0.5;
+      scores.tank += 0.5;
+    }
+    
+    let bestRole = 'fighter';
+    let maxScore = -1;
+    for (const [role, score] of Object.entries(scores)) {
+      if (score > maxScore) {
+        maxScore = score;
+        bestRole = role;
+      }
+    }
+    return bestRole;
+  }
+
+  apply(state, modeConfig, queryText) {
+    const ruleset = modeConfig.ruleset_overrides || [];
+    const champion = state.champion || "Jax";
+    const activeRole = this.classifyActiveRole(champion, state.baseMeta, queryText, ruleset);
+    
+    const augmentedState = {
+      ...state,
+      activeRole,
+      modifiers: {
+        damage_dealt_multiplier: 1.0,
+        damage_taken_multiplier: 1.0,
+        ability_haste: 0,
+        attackspeed_multiplier: 1.0,
+        hp_bonus: 0,
+        size_multiplier: 1.0,
+        lifesteal: 0,
+        ult_ability_haste: 0,
+        ult_damage_multiplier: 1.0,
+        cooldown_multiplier: 1.0,
+        revive_first_death: false,
+        vision_radius_instability: false,
+        reaction_time_modifier: 0.0,
+        ability_mutation_enabled: false,
+        poro_damage_bonus: 0
+      }
+    };
+
+    const chosenAugments = [];
+    const seed = champion ? champion.length : 5;
+
+    if (modeConfig.augments_pool) {
+      const tiers = ['silver', 'gold', 'prismatic'];
+      for (const tier of tiers) {
+        const pool = modeConfig.augments_pool[tier] || [];
+        if (pool.length === 0) continue;
+
+        // Seeded generation of 3 options
+        const tierOffset = tier === 'silver' ? 0 : (tier === 'gold' ? 1 : 2);
+        const options = [];
+        for (let i = 0; i < 3; i++) {
+          const index = (seed + tierOffset * 7 + i * 13) % pool.length;
+          options.push(pool[index]);
+        }
+
+        // De-duplicate options
+        const uniqueOptions = [];
+        const seenIds = new Set();
+        for (const opt of options) {
+          if (!seenIds.has(opt.id)) {
+            seenIds.add(opt.id);
+            uniqueOptions.push(opt);
+          }
+        }
+
+        // Choose best match for activeRole
+        let bestAug = uniqueOptions.find(a => a.type === activeRole);
+        if (!bestAug) {
+          bestAug = uniqueOptions.find(a => a.type === 'all');
+        }
+        if (!bestAug) {
+          bestAug = uniqueOptions[0];
+        }
+
+        chosenAugments.push(bestAug);
+
+        // Apply modifications
+        if (bestAug.modifiers) {
+          for (const [modKey, val] of Object.entries(bestAug.modifiers)) {
+            if (typeof val === 'number') {
+              if (modKey.endsWith('_multiplier')) {
+                augmentedState.modifiers[modKey] *= val;
+              } else {
+                augmentedState.modifiers[modKey] += val;
+              }
+            } else if (typeof val === 'boolean') {
+              augmentedState.modifiers[modKey] = val;
+            }
+          }
+        }
+      }
+    }
+
+    return { augmentedState, chosenAugments };
   }
 }
 
 class MechanicsEngine {
-  // Pure deterministic mathematics
-  calculateAdvantage(baseAdvantage) {
-    // Không có RNG ở đây.
-    return baseAdvantage;
+  calculateAdvantage(state) {
+    const stats = state.stats || {};
+    const modifiers = state.modifiers || {};
+    const role = state.activeRole || 'fighter';
+
+    // Phase 1: Pre-Hit (Setup, positioning, spacing & reaction time)
+    const baseMS = stats.movespeed || 335;
+    const msMod = modifiers.movespeed_multiplier || 1.0;
+    const range = stats.attackrange || 125;
+    const reactionMod = modifiers.reaction_time_modifier || 0.0; // e.g. -0.10 slows opponent down, giving us +0.10 advantage
+    
+    const preHitScore = ((baseMS * msMod) / 350) * 0.3 + (range / 650) * 0.2 - reactionMod * 0.5;
+
+    // Phase 2: Hit Window (Damage sequencing: Burst vs Sustained)
+    const baseAD = stats.attackdamage || 60;
+    const adMod = modifiers.damage_dealt_multiplier || 1.0;
+    const asMod = modifiers.attackspeed_multiplier || 1.0;
+    const haste = modifiers.ability_haste || 0;
+    const ultHaste = modifiers.ult_ability_haste || 0;
+    const totalHaste = haste + ultHaste;
+    const cooldownMod = 100 / (100 + totalHaste);
+
+    let hitScore = 0;
+    if (role === 'mage' || role === 'fighter') {
+      // Burst damage sequencing: high spell scaling & cooldown efficiency
+      const burstScaling = modifiers.ult_damage_multiplier || 1.0;
+      hitScore = ((baseAD * adMod * burstScaling) / 100) * (1.5 / cooldownMod);
+    } else {
+      // Sustained damage sequencing: attack speed & consistent dps
+      const dpsScaling = asMod * adMod;
+      hitScore = ((baseAD * dpsScaling) / 100) * 2.0;
+    }
+
+    // Phase 3: Post-Hit (Survivability, shielding, recovery & mitigation)
+    const baseArmor = stats.armor || 30;
+    const baseMR = stats.spellblock || 30;
+    const baseHP = stats.hp || 600;
+    const hpBonus = modifiers.hp_bonus || 0;
+    const sizeMod = modifiers.size_multiplier || 1.0;
+    const finalHP = (baseHP + hpBonus) * sizeMod;
+    
+    const rawMitigation = 1 - (100 / (100 + (baseArmor + baseMR) / 2));
+    const lifestealFactor = (modifiers.lifesteal || 0) * 0.02;
+    const survivabilityWindow = (finalHP / 500) * (1 + rawMitigation);
+    
+    let postHitScore = survivabilityWindow * (1 + lifestealFactor);
+    if (modifiers.revive_first_death) {
+      postHitScore += 0.25; // Significant post-hit recovery window
+    }
+    if (modifiers.untargetable_on_low_hp) {
+      postHitScore += 0.15; // Escape/recovery window
+    }
+
+    // Integrate combat phases into final advantage
+    let weightPre = 0.2, weightHit = 0.5, weightPost = 0.3;
+    if (role === 'tank') {
+      weightPre = 0.15; weightHit = 0.25; weightPost = 0.60;
+    } else if (role === 'adc') {
+      weightPre = 0.30; weightHit = 0.55; weightPost = 0.15;
+    } else if (role === 'mage') {
+      weightPre = 0.25; weightHit = 0.60; weightPost = 0.15;
+    }
+
+    const advantage = (preHitScore * weightPre) + (hitScore * weightHit) + (postHitScore * weightPost);
+
+    // Bounded normalization to game probability range [0.10, 0.95]
+    return Math.min(0.95, Math.max(0.10, 0.2 + advantage * 0.3));
   }
 }
 
 class ModeMutationEngine {
-  // Bounded transformation based on seed (deterministic)
   mutate(baseAdvantage, modeConfig, champion) {
     const ruleset = modeConfig.ruleset_overrides || [];
     let mutatedAdvantage = baseAdvantage;
     let appliedMutations = [];
     
-    // Seeded transformation (deterministic per champion name)
     const seed = champion ? champion.length : 5;
     
     if (ruleset.includes("ability_mutation_enabled")) {
-       const dmgMod = (seed % 3 === 0) ? 0.2 : ((seed % 2 === 0) ? -0.1 : 0);
+       const dmgMod = (seed % 3 === 0) ? 0.05 : ((seed % 2 === 0) ? -0.05 : 0);
        mutatedAdvantage += dmgMod;
        appliedMutations.push(`Ability Mutation (Dmg Mod: ${dmgMod > 0 ? '+' : ''}${dmgMod})`);
     }
     if (ruleset.includes("cooldown_randomization")) {
        appliedMutations.push(`Cooldown Shift (Seeded)`);
     }
+    if (ruleset.includes("vision_instability")) {
+       appliedMutations.push(`Vision Radius Instability`);
+    }
     return { mutatedAdvantage, appliedMutations };
   }
 }
 
 class HumanNoiseEngine {
-  // Bounded stochastic injection
   injectNoise(hitChance, randomnessLevel, errorScale) {
-    // Noise is added at runtime per trial. It is bounded by randomnessLevel.
     const noise = (Math.random() * randomnessLevel) - (randomnessLevel / 2); 
     const scaledNoise = noise * errorScale;
     return Math.min(1.0, Math.max(0.0, hitChance + scaledNoise));
@@ -191,23 +388,13 @@ class HumanNoiseEngine {
 
 class MonteCarloSimulation {
   constructor() {
-    this.mechanics = new MechanicsEngine();
-    this.mutation = new ModeMutationEngine();
     this.noise = new HumanNoiseEngine();
   }
   
-  simulate(champion, modeConfig) {
+  simulate(mutatedAdvantage, modeConfig) {
     const trials = 50;
     let wins = 0;
-    const baseAdvantage = 0.5; // neutral starting point
     
-    // 1. Mechanics (Deterministic Baseline)
-    const mechanicsAdv = this.mechanics.calculateAdvantage(baseAdvantage);
-    
-    // 2. Mode Mutation (Seeded Transform)
-    const { mutatedAdvantage, appliedMutations } = this.mutation.mutate(mechanicsAdv, modeConfig, champion);
-    
-    // 3. Monte Carlo Loop with Stochastic Noise (Human Layer)
     for (let i = 0; i < trials; i++) {
       const hitChance = mutatedAdvantage;
       const finalChance = this.noise.injectNoise(hitChance, modeConfig.parameters.randomness_level, modeConfig.parameters.execution_error_scale);
@@ -219,7 +406,6 @@ class MonteCarloSimulation {
     return {
       winrate: wins / trials,
       trials: trials,
-      mutations: appliedMutations,
       noise_level_used: modeConfig.parameters.randomness_level,
       error_scale: modeConfig.parameters.execution_error_scale
     };
@@ -227,7 +413,6 @@ class MonteCarloSimulation {
 }
 
 class CalibrationObserver {
-  // Calibration is a Passive Observer. It does not alter the run's outcome.
   observe(simulationResult, state, modeConfig) {
     const realityWinrate = state.baseMeta.reality_anchor?.winrate_general || 50;
     const drift = Math.abs((simulationResult.winrate * 100) - realityWinrate);
@@ -242,13 +427,18 @@ class CalibrationObserver {
 }
 
 class RenderNode {
-  render(truthResult, simResult, calibrationResult, state, modeConfig) {
+  render(truthResult, simResult, calibrationResult, state, modeConfig, chosenAugments, appliedMutations) {
+    const augmentDisplay = chosenAugments && chosenAugments.length > 0 
+      ? chosenAugments.map(a => `${a.name} (${a.description})`).join(', ')
+      : "None";
+
     return {
       Game_Mode: state.gameMode,
       Mode_Ruleset: modeConfig.ruleset_overrides.join(', ') || "None",
       Truth_Layer: `[Level ${truthResult.level}] ${truthResult.note} (Confidence: ${truthResult.confidence})`,
       Stochastic_Simulation: `${(simResult.winrate * 100).toFixed(1)}% Win Probability ±${(simResult.noise_level_used*100).toFixed(0)}% (n=${simResult.trials})`,
-      Mutations_Applied: simResult.mutations.length > 0 ? simResult.mutations.join(', ') : "None",
+      Mutations_Applied: appliedMutations && appliedMutations.length > 0 ? appliedMutations.join(', ') : "None",
+      Selected_Augments: augmentDisplay,
       Reality_Calibration_Observer: calibrationResult.drift_note,
       Strategic_Policy: state.baseMeta.timeline_strategy || "Chưa có chiến thuật cụ thể",
       Recovery_Options: state.baseMeta.recovery_decision_tree || "Chưa có kịch bản thọt"
@@ -262,6 +452,9 @@ export class StagedControllerGraph {
     this.modeResolver = new ModeResolver(db);
     this.truthNode = new TruthNode(db);
     this.stateBuilder = new StateBuilder(db);
+    this.augmentEngine = new AugmentEngine();
+    this.mechanics = new MechanicsEngine();
+    this.modeMutationEngine = new ModeMutationEngine();
     this.simulator = new MonteCarloSimulation();
     this.calibration = new CalibrationObserver();
     this.renderNode = new RenderNode();
@@ -271,15 +464,19 @@ export class StagedControllerGraph {
     const champ = queryContext.champion || "Jax";
     const ability = queryContext.ability || "N/A";
     const gameMode = queryContext.gameMode || "SR";
+    const queryString = queryContext.queryString || "";
 
     const modeConfig = this.modeResolver.resolve(gameMode);
     const truth = this.truthNode.resolve(champ, ability, modeConfig.ruleset_overrides);
-    const state = this.stateBuilder.build(champ, gameMode);
+    const baseState = this.stateBuilder.build(champ, gameMode);
     
-    const simResult = this.simulator.simulate(champ, modeConfig);
-    const calibResult = this.calibration.observe(simResult, state, modeConfig);
+    const { augmentedState, chosenAugments } = this.augmentEngine.apply(baseState, modeConfig, queryString);
+    const mechanicsAdv = this.mechanics.calculateAdvantage(augmentedState);
+    const { mutatedAdvantage, appliedMutations } = this.modeMutationEngine.mutate(mechanicsAdv, modeConfig, champ);
+    const simResult = this.simulator.simulate(mutatedAdvantage, modeConfig);
+    const calibResult = this.calibration.observe(simResult, augmentedState, modeConfig);
     
-    return this.renderNode.render(truth, simResult, calibResult, state, modeConfig);
+    return this.renderNode.render(truth, simResult, calibResult, augmentedState, modeConfig, chosenAugments, appliedMutations);
   }
 }
 
