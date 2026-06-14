@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # Quyền Hạn & Cách Gọi LoL AI Coach
 
 1. Khi User hỏi hoặc đề cập đến bất kỳ thông tin nào liên quan đến Liên Minh Huyền Thoại (LoL, League of Legends), Tướng (Jax, Fiora, Yasuo...), Cơ chế game, Chiến thuật, Trang bị:

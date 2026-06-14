@@ -23,7 +23,8 @@
     "parameters": {
       "randomness_level": 0.80,
       "execution_error_scale": 2.0,
-      "chaos_intensity": 0.80
+      "chaos_intensity": 0.80,
+      "reroll_mechanic": "per_slot_independent"
     },
     "ruleset_overrides": [
       "ability_mutation_enabled",

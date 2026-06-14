@@ -3,7 +3,9 @@
     "A_absolute": [
       { "id": "true_damage_bypass", "description": "Sát thương chuẩn không bị giảm bởi Giáp hoặc Kháng Phép." },
       { "id": "death_disable", "description": "Chết sẽ ngắt mọi kỹ năng đang vận." },
-      { "id": "aram_aura", "description": "Trong ARAM: Giảm 50% hồi máu lên đồng minh. Cận chiến nhận thêm Kháng Phép theo cấp." }
+      { "id": "aram_aura", "description": "Trong ARAM: Giảm 50% hồi máu lên đồng minh. Cận chiến nhận thêm Kháng Phép theo cấp." },
+      { "id": "aram_mayhem_rerolls", "description": "Trong chế độ ARAM: Hỗn Loạn (CHAOS), lượt roll Lõi Nâng Cấp là độc lập cho từng ô và reset mỗi vòng chọn, không cộng dồn và không tích trữ." },
+      { "id": "arena_rerolls", "description": "Trong chế độ Arena (Võ Đài), lượt roll Lõi Nâng Cấp dùng chung một bể tài nguyên (shared pool), có thể tích lũy để dùng cho vòng sau." }
     ],
     "B_verified": [
       { "champion": "Jax", "ability": "E", "tags": ["dodge_auto_attacks", "reduce_aoe_25", "cc_stun"] },
