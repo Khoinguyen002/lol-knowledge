@@ -63,13 +63,13 @@ export function parseQuery(query, championList = []) {
   }
 
   let gameMode = 'SR';
-  if (normalizedQuery.includes('aram') || normalizedQuery.includes('vực gió hú')) {
-    gameMode = 'ARAM';
-  } else if (normalizedQuery.includes('hỗn loạn') || normalizedQuery.includes('chaos')) {
+  if (normalizedQuery.includes('hỗn loạn') || normalizedQuery.includes('chaos')) {
     gameMode = 'CHAOS';
+  } else if (normalizedQuery.includes('aram') || normalizedQuery.includes('vực gió hú')) {
+    gameMode = 'ARAM';
   }
 
-  if (!detectedChampion && gameMode === 'ARAM') {
+  if (!detectedChampion && (gameMode === 'ARAM' || gameMode === 'CHAOS')) {
     detectedChampion = 'ARAM';
   }
 

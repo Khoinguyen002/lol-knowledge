@@ -49,12 +49,24 @@ This skill forces the agent to query the highly advanced "AI Game Coach" system 
   - The correct number of augments (e.g. 5 augments for ARAM: Mayhem) are selected.
 - Document any changes and results in `walkthrough.md`.
 
-### 4. AI-Guided Sync for Patch Notes
-- When requested to sync new patches or updates of rotating modes (e.g., ARAM Mayhem updates):
-  1. Search the web for official League of Legends patch notes or wiki updates.
-  2. Parse the changes (buffs/nerfs, new augments, rule modifications).
-  3. Propose edits to `game_modes.json` or `meta_decisions.json`.
-  4. Perform the edits and execute step 2 (Sync) and step 3 (Verify).
+### 4. AI-Guided Sync for Patch Notes & Game Mode Updates (Bắt buộc tuân thủ)
+Khi người dùng yêu cầu "Cập nhật chế độ chơi X" hoặc "Update game mode X" hoặc "Cập nhật patch mới nhất cho ARAM Hỗn Loạn", đại lý PHẢI thực hiện theo quy trình tự động 5 bước sau mà không cần hỏi lại cách làm:
+
+1. **Tìm kiếm (Research) thông tin Patch mới nhất:**
+   - Sử dụng công cụ `search_web` tìm kiếm thông tin về bản cập nhật của chế độ chơi (ví dụ: `"ARAM: Mayhem" 2026 OR "ARAM: Hỗn Loạn" patch notes OR augments list`).
+   - Xác định rõ danh sách Lõi (Augments) mới được thêm, Lõi bị loại bỏ, hoặc các thay đổi về chỉ số cơ học/luật chơi.
+
+2. **So sánh (Compare) với Config hiện tại:**
+   - Đọc file [game_modes.json](../../../game_modes.json) (hoặc [meta_decisions.json](../../../meta_decisions.json) nếu cần) để định vị xem chế độ chơi đó có gì khác biệt với dữ liệu cũ.
+
+3. **Cập nhật File Config (Update Config):**
+   - Chỉnh sửa [game_modes.json](../../../game_modes.json) để thêm các lõi mới, cập nhật tên/mô tả bằng tiếng Việt, và thiết lập các `modifiers` (như `hp_bonus`, `damage_dealt_multiplier`...) khớp với các trường được hỗ trợ bởi `MechanicsEngine` trong [db-store.js](../../../db-store.js).
+
+4. **Đồng bộ hóa Database Vector (Rebuild DB):**
+   - Chạy lệnh `npm run sync` bằng công cụ `run_command` và đợi tác động hoàn tất thành công để hệ thống biên dịch lại dữ liệu vector mới.
+
+5. **Kiểm thử & Báo cáo kết quả (Verification):**
+   - Chạy lệnh `node query.js "<tên_chế_độ>"` để kiểm chứng xem hệ thống có nhận diện đúng chế độ chơi và hiển thị chính xác danh sách các lõi mới hay không. Sau đó phản hồi báo cáo kết quả cụ thể cho người dùng.
 
 ## Common Mistakes
 - **Answering from memory**: Never guess LoL mechanics. Always run the `query.js` script first.

@@ -52,168 +52,152 @@
     "augments_pool": {
       "silver": [
         {
-          "id": "heavy_hands",
-          "name": "Tay Đòn Nặng",
+          "id": "adaptive_ward",
+          "name": "Giáp Thích Ứng",
+          "type": "tank",
+          "modifiers": {
+            "damage_taken_multiplier": 0.92
+          },
+          "description": "Khi chịu sát thương, nhận lá chắn kháng/giáp thích ứng giúp giảm sát thương nhận vào đi 8%."
+        },
+        {
+          "id": "snowday",
+          "name": "Ngày Tuyết Rơi",
+          "type": "all",
+          "modifiers": {
+            "poro_damage_bonus": 30
+          },
+          "description": "Cầu tuyết nhận thêm điểm hồi và gây thêm sát thương phép khi đánh trúng."
+        },
+        {
+          "id": "stackosaurus_rex",
+          "name": "Khủng Long Cộng Dồn Mới",
           "type": "fighter",
           "modifiers": {
-            "damage_dealt_multiplier": 1.05,
-            "damage_taken_multiplier": 1.02
+            "damage_dealt_multiplier": 1.08,
+            "hp_bonus": 150
           },
-          "description": "Đòn đánh thường gây thêm sát thương vật lý theo máu tối đa."
+          "description": "Tăng tốc độ nhận các chỉ số cộng dồn vĩnh viễn từ trang bị và lõi."
         },
         {
-          "id": "spell_weaver",
-          "name": "Dệt Phép",
+          "id": "quest_support_main",
+          "name": "Nhiệm Vụ: Hỗ Trợ Cứng",
           "type": "mage",
           "modifiers": {
-            "ability_haste": 15
+            "damage_taken_multiplier": 0.95
           },
-          "description": "Tăng 15 Điểm hồi kỹ năng."
-        },
-        {
-          "id": "fleet_footed",
-          "name": "Chân Khéo",
-          "type": "adc",
-          "modifiers": {
-            "attackspeed_multiplier": 1.15
-          },
-          "description": "Tăng 15% Tốc độ đánh."
-        },
-        {
-          "id": "multishot",
-          "name": "Bắn Nhiều Tia",
-          "type": "adc",
-          "modifiers": {
-            "damage_dealt_multiplier": 1.15
-          },
-          "description": "Đòn đánh thường gây thêm +15% sát thương diện rộng nhưng giảm tầm đánh đi 50."
+          "description": "Hồi máu và tạo lá chắn cho đồng đội sẽ tích điểm nhận lượng máu và sức mạnh phép thuật vĩnh viễn."
         }
       ],
       "gold": [
         {
-          "id": "poro_stampede",
-          "name": "Đàn Poro Càn Quét",
-          "type": "all",
+          "id": "archmage",
+          "name": "Đại Pháp Sư Mới",
+          "type": "mage",
           "modifiers": {
-            "poro_damage_bonus": 40
+            "ability_haste": 25,
+            "cooldown_multiplier": 0.90
           },
-          "description": "Ném tuyết (Snowball) triệu hồi đàn Poro càn quét gây thêm sát thương chuẩn."
+          "description": "Nhận 25 Điểm hồi kỹ năng. Dùng kỹ năng có cơ hội hoàn lại hồi chiêu kỹ năng khác."
         },
         {
-          "id": "vampiric_glaive",
-          "name": "Lưỡi Kiếm Hút Máu",
+          "id": "bonk",
+          "name": "Nện!",
           "type": "fighter",
           "modifiers": {
-            "lifesteal": 12
+            "damage_dealt_multiplier": 1.12
           },
-          "description": "Nhận 12% Hút máu toàn phần."
+          "description": "Đòn đánh hoặc kỹ năng cường hóa tiếp theo gây thêm sát thương lan diện rộng."
         },
         {
-          "id": "ability_mutation_augment",
-          "name": "Cường Hóa Biến Dị",
-          "type": "all",
-          "modifiers": {
-            "ability_mutation_enabled": true,
-            "damage_dealt_multiplier": 1.08
-          },
-          "description": "Kỹ năng nhận ngẫu nhiên thuộc tính Lướt, Đạn Đạo hoặc Đòn Đánh."
-        },
-        {
-          "id": "chain_reaction",
-          "name": "Phản Ứng Dây Chuyền",
-          "type": "mage",
+          "id": "from_downtown",
+          "name": "Từ Khoảng Cách Xa",
+          "type": "adc",
           "modifiers": {
             "damage_dealt_multiplier": 1.10
           },
-          "description": "Các kỹ năng trúng đích gây thêm hiệu ứng phát nổ lan sát thương phép."
+          "description": "Nhiệm vụ: Snipe mục tiêu từ khoảng cách xa để mở khóa đòn gọi thiên thạch rớt xuống."
         },
         {
-          "id": "hellbent",
-          "name": "Quyết Liệt",
+          "id": "nature_is_healing",
+          "name": "Tự Nhiên Chữa Lành",
+          "type": "tank",
+          "modifiers": {
+            "hp_bonus": 200,
+            "lifesteal": 8
+          },
+          "description": "Đứng trong bụi cỏ giúp hồi máu nhanh chóng theo % máu tối đa mỗi giây."
+        },
+        {
+          "id": "tooth_fairy",
+          "name": "Nhiệm Vụ: Tiên Răng",
+          "type": "adc",
+          "modifiers": {
+            "damage_dealt_multiplier": 1.10
+          },
+          "description": "Nhiệm vụ: Gây lượng sát thương lớn trong thời gian ngắn khiến địch rơi răng, nhặt răng tăng Sát Lực và Xuyên Kháng Phép."
+        },
+        {
+          "id": "void_dash",
+          "name": "Lướt Hư Không",
           "type": "fighter",
           "modifiers": {
-            "movespeed_multiplier": 1.20,
-            "lifesteal": 10
+            "movespeed_multiplier": 1.10,
+            "damage_dealt_multiplier": 1.05
           },
-          "description": "Tăng 20% tốc độ di chuyển và 10% hút máu toàn phần khi lượng máu dưới 40%."
+          "description": "Khi lướt sẽ tạo một bãi Hư Không tại điểm đến gây sát thương phép và làm chậm kẻ địch."
+        },
+        {
+          "id": "quest_heart_of_steel",
+          "name": "Nhiệm Vụ: Trái Tim Sắt Đá",
+          "type": "tank",
+          "modifiers": {
+            "hp_bonus": 600
+          },
+          "description": "Nhiệm vụ: Tích lũy máu tối đa từ các đòn đánh để nhận vĩnh viễn lượng máu khổng lồ."
         }
       ],
       "prismatic": [
         {
-          "id": "colossus_growth",
-          "name": "Khổng Lồ Hóa",
-          "type": "tank",
+          "id": "high_roller",
+          "name": "Tay Bạc Cao Thủ",
+          "type": "all",
           "modifiers": {
-            "hp_bonus": 500,
-            "damage_dealt_multiplier": 1.12,
-            "size_multiplier": 1.5
+            "damage_dealt_multiplier": 1.10
           },
-          "description": "Nhận 500 Máu, kích cỡ tăng 50%, và tăng 12% Sát thương."
+          "description": "Địch chết có tỷ lệ rơi ra Stat Anvils để chọn cộng chỉ số vĩnh viễn."
         },
         {
-          "id": "ult_bot",
-          "name": "Robot Chiêu Cuối",
+          "id": "draw_your_sword",
+          "name": "Rút Kiếm Ra",
+          "type": "adc",
+          "modifiers": {
+            "damage_dealt_multiplier": 1.25,
+            "hp_bonus": 300,
+            "attackspeed_multiplier": 1.25,
+            "lifesteal": 15,
+            "movespeed_multiplier": 1.15
+          },
+          "description": "Biến tướng đánh xa thành cận chiến, tăng mạnh Máu, SMCK, Tốc đánh, Hút máu và Tốc chạy."
+        },
+        {
+          "id": "infinite_recursion",
+          "name": "Đệ Quy Vô Hạn",
           "type": "mage",
           "modifiers": {
-            "ult_ability_haste": 80,
-            "ult_damage_multiplier": 1.2
+            "ability_haste": 35
           },
-          "description": "Chiêu cuối (R) hồi nhanh hơn 80 điểm và gây thêm 20% sát thương."
+          "description": "Nhận 35 Điểm hồi kỹ năng. Nhận thêm vĩnh viễn điểm hồi kỹ năng với mỗi mạng tham gia hạ gục."
         },
         {
-          "id": "reality_break",
-          "name": "Đột Biến Thực Tại",
-          "type": "all",
-          "modifiers": {
-            "cooldown_multiplier": 0.9
-          },
-          "description": "Các kỹ năng hoán đổi ngẫu nhiên mỗi 3 phút."
-        },
-        {
-          "id": "temporal_spike",
-          "name": "Đỉnh Điểm Thời Gian",
-          "type": "all",
-          "modifiers": {
-            "damage_dealt_multiplier": 1.15
-          },
-          "description": "Nhận đột biến cấp kỹ năng cực hạn sớm ở cấp 1."
-        },
-        {
-          "id": "counterfactual_shield",
-          "name": "Lá Chắn Giả Định",
+          "id": "quest_icathias_fall",
+          "name": "Nhiệm Vụ: Icathia Sụp Đổ",
           "type": "tank",
           "modifiers": {
-            "revive_first_death": true
+            "hp_bonus": 450,
+            "damage_dealt_multiplier": 1.10
           },
-          "description": "Nhận khả năng hồi sinh với 50% máu ở lần nằm xuống đầu tiên."
-        },
-        {
-          "id": "zone_instability",
-          "name": "Tầm Nhìn Bất Ổn",
-          "type": "all",
-          "modifiers": {
-            "vision_radius_instability": true,
-            "reaction_time_modifier": -0.1
-          },
-          "description": "Tầm nhìn thay đổi liên tục, kẻ địch mất dấu và giảm thời gian phản ứng."
-        },
-        {
-          "id": "dimension_shift",
-          "name": "Dịch Chuyển Chiều Space",
-          "type": "all",
-          "modifiers": {
-            "untargetable_on_low_hp": true
-          },
-          "description": "Khi máu dưới 30%, dịch chuyển tức thời về phía sau và không thể bị chỉ định trong 1.5s."
-        },
-        {
-          "id": "echo_cast",
-          "name": "Thi Triển Tiếng Vọng",
-          "type": "mage",
-          "modifiers": {
-            "cooldown_multiplier": 0.80
-          },
-          "description": "Kỹ năng cơ bản có 20% cơ hội được thi triển lần thứ hai miễn phí."
+          "description": "Nhiệm vụ: Khởi đầu với Tàn Tích Bami, lên Giáp Lửa & Giáp Hào Quang Hư Không để ghép thành trang bị Void Immolation bá đạo."
         }
       ]
     }
